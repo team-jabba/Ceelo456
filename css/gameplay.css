@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+   overflow: none;
+   height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 100px;
+    grid-template-areas: "coverPhoto" "footer";
+    min-height: 100%;
+}
+
+main {
+   grid-area: coverPhoto;
+   background-image: url(../assets/img/jabba.jpeg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
+#gamePlayInfo {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 11% 26% 26% 26% 11%;
+    grid-template-areas: "boss bossBank roll playerBank player";
+    width: 100vw;
+    background-color:white;
+    border: solid;
+    height: 100px;
+    align-content: center;
+}
+
+.boss  {
+    grid-area: boss;
+    margin: 20px;
+    text-align: center;
+}
+
+.boss-bank {
+    grid-area: bossBank;
+    border: solid;
+    margin: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 80px;
+}
+
+.roll {
+    grid-area: roll;
+    border: solid;
+    margin: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.player-bank {
+    grid-area: playerBank;
+    border: solid;
+    margin: 20px;
+    justify-content: right;
+    text-align: center;
+    border-radius: 10px;
+    width: 80px;
+}
+
+.player {
+    grid-area: player;
+    margin: 20px;
+    text-align: center;
+    margin-right: 30px; 
+}
