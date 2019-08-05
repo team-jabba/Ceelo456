@@ -9,17 +9,24 @@ html {
 
 body {
     display: grid;
-    grid-template-rows: auto 100px;
+    grid-template-rows: calc(100% - 100px) 100px;
     grid-template-areas: "coverPhoto" "footer";
     min-height: 100%;
 }
 
 main {
+   display: grid;
+   grid-template-columns: 25% 16% 16% 16% 25%;
+   grid-template-rows: 50% 50%;
+   grid-template-areas: "logo dice6 dice5 dice4 y"
+                        "x dice3 dice2 dice1 y";
    grid-area: coverPhoto;
    background-image: url(../assets/img/jabba.jpeg);
    background-repeat: no-repeat;
    background-size: cover;
    background-position: 50% 50%;
+   justify-items: bottom;
+   align-items: center;
 }
 
 #gamePlayInfo {
@@ -73,3 +80,49 @@ main {
     text-align: center;
     margin-right: 30px; 
 }
+
+#dice6 {
+    width: 200px;
+    height: 200px;
+    grid-area: dice6;
+}
+
+#dice5 {
+    width: 200px;
+    height: 200px;
+    grid-area: dice5
+}
+
+#dice4 {
+    width: 200px;
+    height: 200px;
+    grid-area: dice4
+}
+
+#dice3 {
+    width: 200px;
+    height: 200px;
+    grid-area: dice3
+}
+
+#dice2 {
+    width: 200px;
+    height: 200px;
+    grid-area: dice2
+}
+
+#dice1 {
+    width: 200px;
+    height: 200px;
+    grid-area: dice1
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    grid-area: logo;
+    position: fixed;
+    top: 0%;
+    left: 3%;
+}
+
