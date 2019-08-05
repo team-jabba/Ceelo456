@@ -1,0 +1,20 @@
+
+body {
+    display: grid;
+    background-image: url('../assets/img/Cantina.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    justify-items: center;
+    vertical-align: 50%;
+}
+
+input {
+    width: 75%;
+    vertical-align: 50%;
+}
+
+button {
+    width: 50%;
+    font-size: 20px;
+}
