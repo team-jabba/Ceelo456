@@ -9,8 +9,7 @@ const topThird = document.getElementById('top-third');
 const bottomFirst = document.getElementById('bottom-first');
 const bottomSecond = document.getElementById('bottom-second');
 const bottomThird = document.getElementById('bottom-third');
-const topWinLoss = document.getElementById('top-win-loss');
-const bottomWinLoss = document.getElementById('bottom-win-loss');
+const winLoss = document.getElementById('win-loss');
 
 const srcArray = [
     '../assets/img/dice1.png',
@@ -34,9 +33,9 @@ const bottomArray = [
 ];
 
 rollButton.addEventListener('click', () => {
+    rollButton.disable = true;
 
-    topWinLoss.classList.add('hidden');
-    bottomWinLoss.classList.add('hidden');
+    winLoss.classList.add('hidden');
 
     let bankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
 
@@ -47,48 +46,42 @@ rollButton.addEventListener('click', () => {
 
     if(checkAutoResult(bankerRoll)) {
         if(checkAutoResult(bankerRoll) === 'win') {
-            topWinLoss.classList.remove('hidden');
-            bottomWinLoss.classList.remove('hidden');
-            topWinLoss.src = '../assets/img/win.png';
-            bottomWinLoss.src = '../assets/img/loss.png';
+            winLoss.classList.remove('hidden');
+            winLoss.src = '../assets/img/loss.png';
             return;
         } else {
-            topWinLoss.classList.remove('hidden');
-            bottomWinLoss.classList.remove('hidden');
-            topWinLoss.src = '../assets/img/loss.png';
-            bottomWinLoss.src = '../assets/img/win.png';
+            winLoss.classList.remove('hidden');
+            winLoss.src = '../assets/img/win.png';
             return;
         }
     }
 
     let bankerPoints = getPoints(bankerRoll);
 
-    const delayInMilliseconds = 2000;
+    // const delayInMilliseconds = 2000;
 
-    setTimeout(function() {
-        let nonBankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
-        if(checkAutoResult(nonBankerRoll)) {
-            if(checkAutoResult(nonBankerRoll) === 'win') {
-                topWinLoss.classList.remove('hidden');
-                bottomWinLoss.classList.remove('hidden');
-                topWinLoss.src = '../assets/img/loss.png';
-                bottomWinLoss.src = '../assets/img/win.png';
+    // setTimeout(function() {
+    let nonBankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
+    if(checkAutoResult(nonBankerRoll)) {
+        if(checkAutoResult(nonBankerRoll) === 'win') {
+            winLoss.classList.remove('hidden');
+            winLoss.src = '../assets/img/win.png';
 
-            } else {
-                topWinLoss.classList.remove('hidden');
-                bottomWinLoss.classList.remove('hidden');
-                topWinLoss.src = '../assets/img/win.png';
-                bottomWinLoss.src = '../assets/img/loss.png';
+        } else {
+            winLoss.classList.remove('hidden');
+            winLoss.src = '../assets/img/loss.png';
 
-            }
-            for(let i = 0; i < nonBankerRoll.length; i++) {
-                const number = nonBankerRoll[i];
-                bottomArray[i].src = srcArray[number - 1];
-            }
         }
-        let nonBankerPoints = getPoints(nonBankerRoll);
-        return;
-    }, delayInMilliseconds);
+    }
+
+    for(let i = 0; i < nonBankerRoll.length; i++) {
+        const number = nonBankerRoll[i];
+        bottomArray[i].src = srcArray[number - 1];
+    }
+
+    let nonBankerPoints = getPoints(nonBankerRoll);
+    return;
+    // }, delayInMilliseconds);
 
     
 
@@ -96,7 +89,7 @@ rollButton.addEventListener('click', () => {
 
     // if(bankerPoints > playerPoints){
     //     topWinLoss.classList.remove('hidden');
-    //     bottomWinLoss.classList.remove('hidden');
+    //     winLoss.classList.remove('hidden');
     //     topWinLoss.src = '../assets/img/win.png';
     //     bottomWinLoss.src = '../assets/img/loss.png';
     //     return;
