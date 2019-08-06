@@ -1,6 +1,4 @@
-
-const array = [4, 5, 5];
-export const checkForPair = function(array) {
+export function checkForPair(array) {
 
     let flag = 0;
     for(let i = 0; i < array.length; i++) {
@@ -17,4 +15,4 @@ export const checkForPair = function(array) {
     if(flag === 0) {
         return false;
     }
-};
+}
