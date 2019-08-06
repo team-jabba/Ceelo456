@@ -1,15 +1,37 @@
 * {
-    //box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 html {
+    overflow: none;
+    height: 100%;
     background-image: url(../assets/img/horsehead-nebula.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: whitesmoke;
 }
 
+body {
+    display: grid;
+    grid-template-columns: 
+}
+
+header {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    height: 150px;
+    justify-content: center;
+    align-items: center
+}
+
+nav {
+    display: inline-block;
+    width: 150px;
+    text-align: center; 
+}
+
 #jabbadicewhite {
-    width: 200px;
+    width: 150px;
     height: auto;
 }
 
