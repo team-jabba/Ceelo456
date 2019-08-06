@@ -42,6 +42,8 @@ main {
 }
 
 .boss  {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30pt;
     grid-area: boss;
     margin: 20px;
     text-align: center;
@@ -71,11 +73,15 @@ main {
     margin: 20px;
     justify-content: right;
     text-align: center;
-    border-radius: 10px;
-    width: 80px;
+    border-radius: 20px;
+    width: 200px;
+    height: 80px;
+    margin-left: 300px;
 }
 
 .player {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30pt;
     grid-area: player;
     margin: 20px;
     text-align: center;
@@ -83,38 +89,38 @@ main {
 }
 
 #dice6 {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     grid-area: dice6;
 }
 
 #dice5 {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     grid-area: dice5
 }
 
 #dice4 {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     grid-area: dice4
 }
 
 #dice3 {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     grid-area: dice3
 }
 
 #dice2 {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     grid-area: dice2
 }
 
 #dice1 {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     grid-area: dice1
 }
 
@@ -122,8 +128,12 @@ main {
     width: 300px;
     height: 300px;
     grid-area: logo;
-    position: fixed;
+    position: absolute;
     top: 0%;
     left: 2%;
+}
+
+.dicetop {
+    margin-top: 300px;
 }
 
