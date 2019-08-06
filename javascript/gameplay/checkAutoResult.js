@@ -11,5 +11,7 @@ export function checkAutoResult(array) {
         return 'win';
     } else if(getPoints(array) === 6) {
         return 'win';
+    } else if(getPoints(array) === 1) {
+        return 'lose';
     } else { return false; }
 }

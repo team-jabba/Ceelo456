@@ -67,27 +67,31 @@ rollButton.addEventListener('click', () => {
 
     setTimeout(function() {
         let nonBankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
-        for(let i = 0; i < nonBankerRoll.length; i++) {
-            const number = nonBankerRoll[i];
-            bottomArray[i].src = srcArray[number - 1];
-        }
         if(checkAutoResult(nonBankerRoll)) {
             if(checkAutoResult(nonBankerRoll) === 'win') {
                 topWinLoss.classList.remove('hidden');
                 bottomWinLoss.classList.remove('hidden');
                 topWinLoss.src = '../assets/img/loss.png';
                 bottomWinLoss.src = '../assets/img/win.png';
-                return;
+
             } else {
                 topWinLoss.classList.remove('hidden');
                 bottomWinLoss.classList.remove('hidden');
                 topWinLoss.src = '../assets/img/win.png';
                 bottomWinLoss.src = '../assets/img/loss.png';
-                return;
+
+            }
+            for(let i = 0; i < nonBankerRoll.length; i++) {
+                const number = nonBankerRoll[i];
+                bottomArray[i].src = srcArray[number - 1];
             }
         }
-        let playerPoints = getPoints(nonBankerRoll);
+        let nonBankerPoints = getPoints(nonBankerRoll);
+        return;
     }, delayInMilliseconds);
+
+    
+
 
 
     // if(bankerPoints > playerPoints){
