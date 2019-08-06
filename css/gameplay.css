@@ -127,3 +127,7 @@ main {
     background: red;
     display: none;
 }
+
+audio {
+    display: none;
+}

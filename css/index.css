@@ -48,3 +48,7 @@ button {
     font-size: 20px;
     margin: 50px
 }
+
+audio {
+    display: none;
+}
