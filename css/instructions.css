@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "space-age";
+    src:url("../assets//fonts/space-age.ttf")
+}
+
+
+h1 {
+    font-family: 'space-age';
+}
