@@ -16,7 +16,7 @@ main {
     display: grid;
     grid-template-columns: 25% 16% 16% 16% 25%;
     grid-template-rows: 60% 40%;
-    grid-template-areas: "logo dice6 dice5 dice4 top-win-loss" ". dice3 dice2 dice1 bottom-win-loss";
+    grid-template-areas: "logo dice6 dice5 dice4 ." ". dice3 dice2 dice1 win-loss";
     grid-area: coverPhoto;
     background-image: url(../assets/img/jabba.jpeg);
     background-repeat: no-repeat;
@@ -117,14 +117,10 @@ main {
     max-height: 50%;
 }
 
-#top-win-loss {
-    grid-area: top-win-loss;
+#win-loss {
+    grid-area: win-loss;
     width: 100%;
-}
-
-#bottom-win-loss {
-    grid-area: bottom-win-loss;
-    width: 100%;
+    margin-top: -50%;
 }
 
 .hidden {
