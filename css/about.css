@@ -13,25 +13,23 @@ html {
 
 body {
     display: grid;
-    grid-template-columns: 
 }
 
 header {
     display: grid;
     grid-template-columns: 25% 50% 25%;
-    height: 150px;
+    height: auto;
     justify-content: center;
     align-items: center
 }
 
 nav {
     display: inline-block;
-    width: 150px;
     text-align: center; 
 }
 
 #jabbadicewhite {
-    width: 150px;
+    max-width:60%;
     height: auto;
 }
 
