@@ -1,5 +1,3 @@
-
-
 html {
     height: 100%;
     margin: 0px;
@@ -18,7 +16,7 @@ main {
     display: grid;
     grid-template-columns: 25% 16% 16% 16% 25%;
     grid-template-rows: 60% 40%;
-    grid-template-areas: "logo dice6 dice5 dice4 y" ". dice3 dice2 dice1 .";
+    grid-template-areas: "logo dice6 dice5 dice4 top-win-loss" ". dice3 dice2 dice1 bottom-win-loss";
     grid-area: coverPhoto;
     background-image: url(../assets/img/jabba.jpeg);
     background-repeat: no-repeat;
@@ -76,27 +74,27 @@ main {
     grid-area: player;
 }
 
-#dice6 {
+#top-first {
     grid-area: dice6;
 }
 
-#dice5 {
+#top-second {
     grid-area: dice5
 }
 
-#dice4 {
+#top-third {
     grid-area: dice4
 }
 
-#dice3 {
+#bottom-first {
     grid-area: dice3
 }
 
-#dice2 {
+#bottom-second {
     grid-area: dice2
 }
 
-#dice1 {
+#bottom-third {
     grid-area: dice1
 }
 
@@ -117,4 +115,19 @@ main {
     max-width: 100%;
     margin-top: -20%;
     max-height: 50%;
+}
+
+#top-win-loss {
+    grid-area: top-win-loss;
+    width: 100%;
+}
+
+#bottom-win-loss {
+    grid-area: bottom-win-loss;
+    width: 100%;
+}
+
+.hidden {
+    background: red;
+    display: none;
 }
