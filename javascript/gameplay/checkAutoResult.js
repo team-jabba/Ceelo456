@@ -9,7 +9,7 @@ export function checkAutoResult(array) {
         return 'Auto Lose: 1, 2, 3';
     } else if(checkForPair(array) === getPoints(array)) {
         return 'Auto Win: Three-of-a-Kind';
-    } else if(getPoints(array)===6){
+    } else if(getPoints(array) === 6) {
         return 'Auto Win: 6 Points';
     } else { return false; }
 }
