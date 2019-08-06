@@ -1,5 +1,5 @@
 import { checkAutoResult } from './checkAutoResult.js';
-import { getPoints } from './getPoints.js';
+// import { getPoints } from './getPoints.js';
 // import { checkForPair } from './checkForPair.js';
 
 const rollButton = document.getElementById('roll-button');
@@ -31,18 +31,18 @@ const bottomArray = [
     bottomSecond,
     bottomThird
 ];
-
+let bankerRoll = [];
+const delayInMilliseconds = 10;
 rollButton.addEventListener('click', () => {
-
+    
     winLoss.classList.add('hidden');
-
-    let bankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
-
+    bankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
+    
     for(let i = 0; i < bankerRoll.length; i++) {
         const number = bankerRoll[i];
         topArray[i].src = srcArray[number - 1];
     }
-
+    
     if(checkAutoResult(bankerRoll)) {
         if(checkAutoResult(bankerRoll) === 'win') {
             winLoss.classList.remove('hidden');
@@ -55,9 +55,8 @@ rollButton.addEventListener('click', () => {
         }
     }
 
-    let bankerPoints = getPoints(bankerRoll);
 
-    const delayInMilliseconds = 2000;
+    // let bankerPoints = getPoints(bankerRoll);
 
     setTimeout(function() {
         let nonBankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
@@ -74,7 +73,7 @@ rollButton.addEventListener('click', () => {
             const number = nonBankerRoll[i];
             bottomArray[i].src = srcArray[number - 1];
         }
-        let nonBankerPoints = getPoints(nonBankerRoll);
+        // let nonBankerPoints = getPoints(nonBankerRoll);
         return;
     }, delayInMilliseconds);
 });
