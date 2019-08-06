@@ -1,3 +1,18 @@
+header {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    height: auto;
+    justify-content: center;
+    align-items: center
+}
+html {
+    overflow: none;
+    height: 100%;
+    background-image: url(../assets/img/horsehead-nebula.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: whitesmoke;
+}
 
 body {
     display: grid;
