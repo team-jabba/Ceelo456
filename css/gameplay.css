@@ -50,6 +50,8 @@ main {
 }
 
 .boss-bank {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30pt;
     grid-area: bossBank;
     border: solid;
     margin: 20px;
@@ -60,14 +62,19 @@ main {
 }
 
 .roll {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30pt;
     grid-area: roll;
     border: solid;
     margin: 20px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
+    height: 80px;
 }
 
 .player-bank {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30pt;
     grid-area: playerBank;
     border: solid;
     margin: 20px;
