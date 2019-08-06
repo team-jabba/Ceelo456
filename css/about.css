@@ -1,0 +1,18 @@
+* {
+    //box-sizing: border-box;
+}
+html {
+    background-image: url(../assets/img/horsehead-nebula.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: whitesmoke;
+}
+
+#jabbadicewhite {
+    width: 200px;
+    height: auto;
+}
+
+h1{
+    text-align: center;
+}
