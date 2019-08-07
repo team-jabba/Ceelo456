@@ -1,8 +1,10 @@
 import { checkAutoResult } from './checkAutoResult.js';
 import { getPoints } from './getPoints.js';
 import { updateMoney } from './gambling.js';
+
 import { checkBank } from './checkBank.js';
 import store from '../localstorage/store.js';
+
 
 const rollButton = document.getElementById('roll-button');
 const topFirst = document.getElementById('top-first');
@@ -14,7 +16,9 @@ const bottomThird = document.getElementById('bottom-third');
 const winLoss = document.getElementById('win-loss');
 const bossBankMoney = document.getElementById('boss-bank-display');
 const playerBankMoney = document.getElementById('player-bank-display');
+
 const playerName = document.getElementById('player-name');
+
 
 const srcArray = [
     '../assets/img/dice1.png',
@@ -36,6 +40,11 @@ const bottomArray = [
     bottomSecond,
     bottomThird
 ];
+let bankerRoll = [];
+let nonBankerRoll = [];
+const delayInMilliseconds = 10;
+let wager = 200;
+
 
 playerName.textContent = store.get('username');
 
@@ -94,12 +103,15 @@ rollButton.addEventListener('click', () => {
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
                 checkRoundOver();
+
             } else {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/loss.png';
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
+
                 checkRoundOver();
+
             }
         }
         for(let i = 0; i < nonBankerRoll.length; i++) {
