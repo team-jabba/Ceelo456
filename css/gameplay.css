@@ -4,8 +4,18 @@ html {
 }
 
 @font-face {
-    font-family: "arcade-classic";
-    src:url("../assets/fonts/arcade-classic.TTF");
+    font-family: "colored-crayons";
+    src:url("../assets/fonts/colored-crayons.TTF");
+}
+
+@font-face {
+    font-family: "aurebesh";
+    src:url("../assets/fonts/aurebesh.TTF");
+}
+
+@font-face {
+    font-family: "space-age";
+    src:url("../assets/fonts/space-age.ttf");
 }
 
 body {
@@ -40,23 +50,22 @@ footer {
 }
 
 #gamePlayInfo {
-    font-family: 'arcade-classic';
+    font-family: 'colored-crayons';
     display: grid;
     grid-template-columns: 11% 26% 26% 26% 11%;
     grid-template-areas: "boss bossBank roll playerBank player";
     align-content: center;
     margin-top: 4%;
-}
+    }
 
 #gamePlayInfo>p {
-    font-family: 'Arial Narrow', sans-serif;
     color: white;
     margin: auto;
 }
 
 .boss {
     grid-area: boss;
-    font-size: 2vw;
+    font-size: 3vw;
 }
 
 .boss-bank {
@@ -67,7 +76,8 @@ footer {
     width: 150px;
     height: 80px;
     text-align: center;
-    font-size: 2vw;
+    font-size: 2.3vw;
+    font-family: 'aurebesh';
     line-height: 70px; 
     box-shadow: 0px 0px 80px 30px black;
     background-color: rgb(122, 126, 48);
@@ -80,6 +90,7 @@ footer {
     border-radius: 20px;
     height: 80px;
     max-width: 50vw;
+    font-family: 'space-age';
     font-size: 2vw;
     box-shadow: 0px 0px 80px 30px black;
     background-color: rgb(122, 126, 48);
@@ -103,13 +114,14 @@ button:hover {
     text-align: center;
     line-height: 70px; 
     box-shadow: 0px 0px 80px 30px black;
-    font-size: 2vw;
+    font-family: 'aurebesh';
+    font-size: 2.3vw;
     background-color: rgb(122, 126, 48);
 }
 
 .player {
     grid-area: player;
-    font-size: 2vw;
+    font-size: 3vw;
 }
 
 #top-first {
