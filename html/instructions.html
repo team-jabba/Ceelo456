@@ -4,12 +4,63 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/instructions.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <title>Beke uba need instructions maybe uba shouldn't shulu gambling noo hutt</title>
     </head>
     <body>
-        <h1>Game Instructions</h1>
-        <img src="./assets/title.png" alt="Jabba Dice"> 
+        <header>
+            <img src="../assets/img/jabbadicelogowhite.png" id="jabbadicewhite">
+            <h1>Game Instructions</h1>
+        </header>
+        <nav>
+            <button onclick="window.location.href = '../index.html';">Play the Game
+            </button>
+        </nav>
+        <main>
+            <h2>
+                Rules of Cee-lo:
+            </h2>
+            <p>
+                One player is the banker while the other player bets against the banker.
+            </p>
+            <h2>
+                The banker rolls the dice:
+            </h2>
+            <p>
+                Automatic Wins: 
+
+                If the banker rolls 4-5-6, "triples" (all three dice show the same number), 
+                or a pair (of non-6s) with a 6 then they instantly win.
+            </p>
+            <p>
+                Automatic Losses: 
+                If the banker rolls 1-2-3, or a pair (of non-1s) with a 1, they instantly lose.
+            </p>
+            <p>
+                Set Point: 
+
+                If the banker rolls a pair and a single (2, 3, 4, or 5), then the single becomes 
+                the banker's "point." For example: a roll of 2-2-4 gives the banker a point of 4. 
+                Note that you can not set a point of 1 or 6, as those would result in an automatic 
+                loss or win, respectively (see above).
+            </p>
+            <p>
+                Re-roll: 
+
+                If the dice don't show any of the above combinations, then the banker rolls again 
+                and keeps rolling until they get an instant win or an instant loss, or sets a point.
+            </p>
+            <h2>
+                The player rolls the dice:
+            </h2>
+            <p>
+                If the banker does not roll an automatic win or loss, they will have rolled a point 
+                of 2, 3, 4, or 5. The player then rolls the dice to settle their bet against the banker. 
+                The player wins with a 4-5-6, triple, or any point higher than the Banker's. They lose 
+                with a 1-2-3, or any point lower than the banker's. If they tie the banker's point, then 
+                it's a "push", no winner or loser, and the player pockets their stake.
+            </p>
+        </main>
     </body>
 </html>

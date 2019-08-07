@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "space-age";
+    src:url("../assets/fonts/space-age.ttf")
+}
+
 html {
     overflow: none;
     height: 100%;
@@ -15,6 +20,7 @@ div {
     display: grid;
     justify-content: center;
     align-items: center;
+    margin:2%;
 }
 
 header {
@@ -22,12 +28,42 @@ header {
     grid-template-columns: 25% 50% 25%;
     height: auto;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 
 nav {
     display: inline-block;
     text-align: center; 
+}
+
+main {
+    display: grid;
+    font-family: 'space-age';
+    font-size: 4vh;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    border: solid;
+    margin: 50px;
+    border-radius: 20px;
+    height: 80px;
+    max-width: 50vw;
+    font-family: 'space-age';
+    font-size: 2.5vw;
+    box-shadow: 0px 0px 30px 10px lightgray;
+    background-color:black;
+    color: white;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover {
+    transform: translate3d(-2px, -2px, 10px);
+    box-shadow: 0px 0px 20px 10px rgb(255, 0, 0);
 }
 
 #jabbadicewhite {
@@ -36,15 +72,13 @@ nav {
 }
 
 h1{
+    font-size: 5vh;
     text-align: center;
+    font-family: 'space-age';
 }
 
 input {
-    width: 200px;
+    width: 40vh;
+    font-family: 'space-age';
 }
 
-button {
-    width: 200px;
-    font-size: 20px;
-    margin: 50px
-}
