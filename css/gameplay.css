@@ -3,6 +3,11 @@ html {
     margin: 0px;
 }
 
+@font-face {
+    font-family: "arcade-classic";
+    src:url("../assets/fonts/arcade-classic.TTF");
+}
+
 body {
     display: grid;
     margin: 0px;
@@ -12,7 +17,6 @@ body {
 }
 
 main {
-    border: solid 4px black;
     display: grid;
     grid-template-columns: 25% 16% 16% 16% 25%;
     grid-template-rows: 60% 40%;
@@ -21,28 +25,38 @@ main {
     background-image: url(../assets/img/jabba.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: 50% 30%;
+}
+footer {
+    background-image: url(../assets/img/bricklayer2.png);
+    background-size: 100px;
+    background-position-x: 50%;
+    background-position-y: 40%;
+    background-size: 110% 200%;
+    background-repeat: no-repeat;
+    margin-top: -25px;
+    overflow: visible;
+    grid-area: footer;
 }
 
 #gamePlayInfo {
-    grid-area: footer;
+    font-family: 'arcade-classic';
     display: grid;
     grid-template-columns: 11% 26% 26% 26% 11%;
     grid-template-areas: "boss bossBank roll playerBank player";
-    width: 100vw;
-    background-color: white;
-    border: solid;
     align-content: center;
+    margin-top: 4%;
 }
 
 #gamePlayInfo>p {
     font-family: 'Arial Narrow', sans-serif;
-    font-size: 30pt;
+    color: white;
     margin: auto;
 }
 
 .boss {
     grid-area: boss;
+    font-size: 2vw;
 }
 
 .boss-bank {
@@ -50,8 +64,13 @@ main {
     border: solid;
     margin: 20px;
     border-radius: 20px;
-    width: 200px;
+    width: 150px;
     height: 80px;
+    text-align: center;
+    font-size: 2vw;
+    line-height: 70px; 
+    box-shadow: 0px 0px 80px 30px black;
+    background-color: rgb(122, 126, 48);
 }
 
 .roll {
@@ -60,18 +79,37 @@ main {
     margin: 20px;
     border-radius: 20px;
     height: 80px;
+    max-width: 50vw;
+    font-size: 2vw;
+    box-shadow: 0px 0px 80px 30px black;
+    background-color: rgb(122, 126, 48);
+    color: white;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover {
+    transform: translate3d(-2px, -2px, 10px);
 }
 
 .player-bank {
     grid-area: playerBank;
     border: solid;
     border-radius: 20px;
-    width: 200px;
+    width: 150px;
     height: 80px;
+    text-align: center;
+    line-height: 70px; 
+    box-shadow: 0px 0px 80px 30px black;
+    font-size: 2vw;
+    background-color: rgb(122, 126, 48);
 }
 
 .player {
     grid-area: player;
+    font-size: 2vw;
 }
 
 #top-first {
