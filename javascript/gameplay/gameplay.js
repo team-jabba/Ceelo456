@@ -17,6 +17,7 @@ const bossBankMoney = document.getElementById('boss-bank-display');
 const playerBankMoney = document.getElementById('player-bank-display');
 const jabbaLaugh = document.getElementById('jabba-laugh');
 const salaciousLaugh = document.getElementById('salacious-laugh');
+const diceSound1 = document.getElementById('dice-sound-1');
 
 const playerName = document.getElementById('player-name');
 
@@ -48,6 +49,7 @@ let nonBankerRoll = [];
 let wager = 200;
 
 rollButton.addEventListener('click', () => {
+    diceSound1.play();
     winLoss.classList.add('hidden');
     for(let i = 0; i < bottomArray.length; i++) {
         bottomArray[i].classList.add('hidden');
