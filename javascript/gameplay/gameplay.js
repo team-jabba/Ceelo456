@@ -38,8 +38,6 @@ let bankerRoll = [];
 let nonBankerRoll = [];
 let wager = 200;
 
-// onclick = "window.location.href = 'results.html';"
-
 rollButton.addEventListener('click', () => {
     winLoss.classList.add('hidden');
     for(let i = 0; i < bottomArray.length; i++) {
@@ -63,14 +61,20 @@ rollButton.addEventListener('click', () => {
                 winLoss.src = '../assets/img/loss.png';
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
-
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
                 return;
             } else {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/win.png';
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
-                
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
                 return;
             }
         }
@@ -90,13 +94,19 @@ rollButton.addEventListener('click', () => {
                 winLoss.src = '../assets/img/win.png';
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
-                ////
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
             } else {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/loss.png';
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
-                /////
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
             }
         }
         for(let i = 0; i < nonBankerRoll.length; i++) {
@@ -112,8 +122,10 @@ rollButton.addEventListener('click', () => {
         winLoss.src = '../assets/img/loss.png';
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
-        ////
-
+        if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+            rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+            rollButton.textContent = 'Meet Your Fate...';
+        }
     }
     else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
         winLoss.classList.remove('hidden');
@@ -124,6 +136,16 @@ rollButton.addEventListener('click', () => {
         winLoss.src = '../assets/img/win.png';
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
-        ////
+        if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+            rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+            rollButton.textContent = 'Meet Your Fate...';
+        }
     }
 });
+
+
+// function checkGameEnd() {
+//     if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney === 0)) {
+//         rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+//     }
+// }
