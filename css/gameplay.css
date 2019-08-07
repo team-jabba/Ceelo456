@@ -5,17 +5,17 @@ html {
 
 @font-face {
     font-family: "colored-crayons";
-    src:url("../assets/fonts/colored-crayons.TTF");
+    src: url("../assets/fonts/colored-crayons.TTF");
 }
 
 @font-face {
     font-family: "aurebesh";
-    src:url("../assets/fonts/aurebesh.TTF");
+    src: url("../assets/fonts/aurebesh.TTF");
 }
 
 @font-face {
     font-family: "space-age";
-    src:url("../assets/fonts/space-age.ttf");
+    src: url("../assets/fonts/space-age.ttf");
 }
 
 body {
@@ -37,6 +37,7 @@ main {
     background-size: cover;
     background-position: 50% 30%;
 }
+
 footer {
     background-image: url(../assets/img/bricklayer2.png);
     background-size: 100px;
@@ -51,40 +52,38 @@ footer {
 
 #gamePlayInfo {
     font-family: 'colored-crayons';
-    display: grid;
-    grid-template-columns: 11% 26% 26% 26% 11%;
-    grid-template-areas: "boss bossBank roll playerBank player";
+    display: flex;
     align-content: center;
     margin-top: 4%;
-    }
+}
 
 #gamePlayInfo>p {
     color: white;
     margin: auto;
+    padding-left: 20px;
 }
 
 .boss {
-    grid-area: boss;
     font-size: 3vw;
+    align-self: center;
+    text-shadow: 10px 10px 6px black;
 }
 
 .boss-bank {
-    grid-area: bossBank;
     border: solid;
     margin: 20px;
     border-radius: 20px;
     width: 150px;
     height: 80px;
     text-align: center;
-    font-size: 2.3vw;
+    font-size: 200%;
     font-family: 'aurebesh';
-    line-height: 70px; 
+    line-height: 80px;
     box-shadow: 0px 0px 80px 30px black;
     background-color: rgb(122, 126, 48);
 }
 
 .roll {
-    grid-area: roll;
     border: solid;
     margin: 20px;
     border-radius: 20px;
@@ -106,22 +105,21 @@ button:hover {
 }
 
 .player-bank {
-    grid-area: playerBank;
     border: solid;
     border-radius: 20px;
     width: 150px;
     height: 80px;
     text-align: center;
-    line-height: 70px; 
+    line-height: 80px;
     box-shadow: 0px 0px 80px 30px black;
     font-family: 'aurebesh';
-    font-size: 2.3vw;
+    font-size: 200%;
     background-color: rgb(122, 126, 48);
 }
 
 .player {
-    grid-area: player;
     font-size: 3vw;
+    text-shadow: 10px 10px 6px black;
 }
 
 #top-first {
