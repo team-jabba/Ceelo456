@@ -120,9 +120,11 @@ main {
 #win-loss {
     grid-area: win-loss;
     width: 100%;
+    margin-top: -50%;
 }
 
 .hidden {
     background: red;
     display: none;
 }
+

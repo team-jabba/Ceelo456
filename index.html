@@ -5,19 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/title.css">
+        <link rel="stylesheet" href="/css/index.css">
         <title>Chowbaso Jooba'z Oice Bunko</title>
     </head>
     <body>
-        <main></main>
-        <div id="start">
-            <img src="./assets/title.png" alt="Jabba Dice">
-            <label for="user-name">Name:</label>
-            <input id="user-name" required name="user-name" type="text">
-            <a href="./html/gameplay.html">
-                <button>GO!</button>
-            </a>
-        </div>
+        <header>
+            <img src="../assets/img/jabbadicelogowhite.png" id="jabbadicewhite">
+            <h1>Welcome to Jabba's Cee-lo Palace</h1>
+        </header>
+        <main>
+            <div id="start">
+                <label for="user-name">Name:</label>
+                <div>
+                <input id="user-name" required name="user-name" type="text">
+                </div>
+                <a href="./html/gameplay.html">
+                    <button>GO!</button>
+                </a>
+            </div>
+        </main>
+        <audio controls autoplay style="display:none">
+            <source src="/assets/audio/cantina-theme.mp3">
+        </audio>
         <script type="module" src="./javascript/gameplay/gameplay.js"></script>
     </body>
 </html>

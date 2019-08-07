@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow: none;
+    height: 100%;
+    background-image: url(../assets/img/Cantina.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: whitesmoke;
+}
+
+div {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    height: auto;
+    justify-content: center;
+    align-items: center
+}
+
+nav {
+    display: inline-block;
+    text-align: center; 
+}
+
+#jabbadicewhite {
+    max-width:60%;
+    height: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+input {
+    width: 200px;
+}
+
+button {
+    width: 200px;
+    font-size: 20px;
+    margin: 50px
+}
