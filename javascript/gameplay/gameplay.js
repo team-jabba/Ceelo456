@@ -16,6 +16,7 @@ const winLoss = document.getElementById('win-loss');
 const bossBankMoney = document.getElementById('boss-bank-display');
 const playerBankMoney = document.getElementById('player-bank-display');
 const jabbaLaugh = document.getElementById('jabba-laugh');
+const salaciousLaugh = document.getElementById('salacious-laugh');
 
 const playerName = document.getElementById('player-name');
 
@@ -65,16 +66,14 @@ rollButton.addEventListener('click', () => {
 
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
-                winLoss.classList.remove('hidden');
-                winLoss.src = '../assets/img/loss.png';
+                showLossMessage();
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
                 jabbaLaugh.play();
                 checkRoundOver();
                 return;
             } else {
-                winLoss.classList.remove('hidden');
-                winLoss.src = '../assets/img/win.png';
+                showWinMessage();
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
                 checkRoundOver();
@@ -93,20 +92,16 @@ rollButton.addEventListener('click', () => {
         }
         if(checkAutoResult(nonBankerRoll)) {
             if(checkAutoResult(nonBankerRoll) === 'win') {
-                winLoss.classList.remove('hidden');
-                winLoss.src = '../assets/img/win.png';
+                showWinMessage();
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
                 checkRoundOver();
 
             } else {
-                winLoss.classList.remove('hidden');
-                winLoss.src = '../assets/img/loss.png';
+                showLossMessage();
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
-
                 checkRoundOver();
-
             }
         }
         for(let i = 0; i < nonBankerRoll.length; i++) {
@@ -118,19 +113,17 @@ rollButton.addEventListener('click', () => {
         }
     }
     if(getPoints(bankerRoll) > getPoints(nonBankerRoll)) {
-        winLoss.classList.remove('hidden');
-        winLoss.src = '../assets/img/loss.png';
+        showLossMessage();
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
         checkRoundOver();
     }
     else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
-        winLoss.classList.remove('hidden');
-        winLoss.src = '../assets/img/draw!.png';
+        showDrawMessage();
+        salaciousLaugh.play();
     }
     else {
-        winLoss.classList.remove('hidden');
-        winLoss.src = '../assets/img/win.png';
+        showWinMessage();
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
         checkRoundOver();
@@ -147,4 +140,19 @@ function checkRoundOver() {
 
 function rollDice(){
     return Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
+}
+
+function showLossMessage(){
+    winLoss.classList.remove('hidden');
+    winLoss.src = '../assets/img/loss.png';
+}
+
+function showWinMessage(){
+    winLoss.classList.remove('hidden');
+    winLoss.src = '../assets/img/win.png';
+}
+
+function showDrawMessage(){
+    winLoss.classList.remove('hidden');
+    winLoss.src = '../assets/img/draw!.png';
 }
