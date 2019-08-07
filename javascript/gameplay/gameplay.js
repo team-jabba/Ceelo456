@@ -2,6 +2,7 @@ import { checkAutoResult } from './checkAutoResult.js';
 import { getPoints } from './getPoints.js';
 import { updateMoney } from './gambling.js';
 import { checkBank } from './checkBank.js';
+import store from '../localstorage/store.js';
 
 const rollButton = document.getElementById('roll-button');
 const topFirst = document.getElementById('top-first');
@@ -13,6 +14,7 @@ const bottomThird = document.getElementById('bottom-third');
 const winLoss = document.getElementById('win-loss');
 const bossBankMoney = document.getElementById('boss-bank-display');
 const playerBankMoney = document.getElementById('player-bank-display');
+const playerName = document.getElementById('player-name');
 
 const srcArray = [
     '../assets/img/dice1.png',
@@ -34,6 +36,8 @@ const bottomArray = [
     bottomSecond,
     bottomThird
 ];
+
+playerName.textContent = store.get('username');
 
 let bankerRoll = [];
 let nonBankerRoll = [];
