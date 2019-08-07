@@ -61,11 +61,13 @@ footer {
 #gamePlayInfo>p {
     color: white;
     margin: auto;
+    padding-left: 20px;
 }
 
 .boss {
     grid-area: boss;
     font-size: 3vw;
+    text-shadow: 10px 10px 6px black;
 }
 
 .boss-bank {
@@ -78,7 +80,7 @@ footer {
     text-align: center;
     font-size: 2.3vw;
     font-family: 'aurebesh';
-    line-height: 70px; 
+    line-height: 80px;  
     box-shadow: 0px 0px 80px 30px black;
     background-color: rgb(122, 126, 48);
 }
@@ -112,7 +114,7 @@ button:hover {
     width: 150px;
     height: 80px;
     text-align: center;
-    line-height: 70px; 
+    line-height: 80px; 
     box-shadow: 0px 0px 80px 30px black;
     font-family: 'aurebesh';
     font-size: 2.3vw;
@@ -122,6 +124,7 @@ button:hover {
 .player {
     grid-area: player;
     font-size: 3vw;
+    text-shadow: 10px 10px 6px black;
 }
 
 #top-first {
