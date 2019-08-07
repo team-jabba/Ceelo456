@@ -1,7 +1,6 @@
 import { checkAutoResult } from './checkAutoResult.js';
 import { getPoints } from './getPoints.js';
 import { updateMoney } from './gambling.js';
-
 import { checkBank } from './checkBank.js';
 import store from '../localstorage/store.js';
 
@@ -40,11 +39,6 @@ const bottomArray = [
     bottomSecond,
     bottomThird
 ];
-let bankerRoll = [];
-let nonBankerRoll = [];
-const delayInMilliseconds = 10;
-let wager = 200;
-
 
 playerName.textContent = store.get('username');
 
