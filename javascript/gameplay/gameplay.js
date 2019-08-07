@@ -1,8 +1,7 @@
 import { checkAutoResult } from './checkAutoResult.js';
 import { getPoints } from './getPoints.js';
 import { updateMoney } from './gambling.js';
-// import { getPoints } from './getPoints.js';
-// import { checkForPair } from './checkForPair.js';
+import { checkBank } from './checkBank.js';
 
 const rollButton = document.getElementById('roll-button');
 const topFirst = document.getElementById('top-first');
@@ -37,39 +36,45 @@ const bottomArray = [
 ];
 let bankerRoll = [];
 let nonBankerRoll = [];
-// const delayInMilliseconds = 10;
 let wager = 200;
-
 
 rollButton.addEventListener('click', () => {
     winLoss.classList.add('hidden');
-    for(let i = 0; i < bottomArray.length; i ++) {
+    for(let i = 0; i < bottomArray.length; i++) {
         bottomArray[i].classList.add('hidden');
     }
-    
-    let bossBank = parseInt(bossBankMoney.textContent);
-    let playerBank = parseInt(playerBankMoney.textContent);
-    let flag = 0; 
+
+    let bossBank = checkBank(bossBankMoney);
+    let playerBank = checkBank(playerBankMoney);
+    let flag = 0;
     while(flag === 0) {
-        
+
         bankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
         for(let i = 0; i < bankerRoll.length; i++) {
             const number = bankerRoll[i];
             topArray[i].src = srcArray[number - 1];
         }
-    
+
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/loss.png';
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
                 return;
             } else {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/win.png';
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
                 return;
             }
         }
@@ -77,14 +82,10 @@ rollButton.addEventListener('click', () => {
             flag = 1;
         }
     }
-
-    // let bankerPoints = getPoints(bankerRoll);
-
-    // setTimeout(function() {
     flag = 0;
     while(flag === 0) {
         nonBankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
-        for(let i = 0; i < bottomArray.length; i ++) {
+        for(let i = 0; i < bottomArray.length; i++) {
             bottomArray[i].classList.remove('hidden');
         }
         if(checkAutoResult(nonBankerRoll)) {
@@ -93,29 +94,38 @@ rollButton.addEventListener('click', () => {
                 winLoss.src = '../assets/img/win.png';
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
             } else {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/loss.png';
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
+                }
             }
         }
         for(let i = 0; i < nonBankerRoll.length; i++) {
             const number = nonBankerRoll[i];
             bottomArray[i].src = srcArray[number - 1];
         }
-        // let nonBankerPoints = getPoints(nonBankerRoll);
         if(getPoints(nonBankerRoll)) {
             flag = 1;
         }
-    // }, delayInMilliseconds);
     }
-
     if(getPoints(bankerRoll) > getPoints(nonBankerRoll)) {
         winLoss.classList.remove('hidden');
         winLoss.src = '../assets/img/loss.png';
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+        if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+            rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+            rollButton.textContent = 'Meet Your Fate...';
+        }
     }
     else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
         winLoss.classList.remove('hidden');
@@ -126,5 +136,16 @@ rollButton.addEventListener('click', () => {
         winLoss.src = '../assets/img/win.png';
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+        if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+            rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+            rollButton.textContent = 'Meet Your Fate...';
+        }
     }
 });
+
+
+// function checkGameEnd() {
+//     if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney === 0)) {
+//         rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+//     }
+// }
