@@ -15,9 +15,9 @@ const bottomThird = document.getElementById('bottom-third');
 const winLoss = document.getElementById('win-loss');
 const bossBankMoney = document.getElementById('boss-bank-display');
 const playerBankMoney = document.getElementById('player-bank-display');
+const jabbaLaugh = document.getElementById('jabba-laugh');
 
 const playerName = document.getElementById('player-name');
-
 
 const srcArray = [
     '../assets/img/dice1.png',
@@ -69,6 +69,7 @@ rollButton.addEventListener('click', () => {
                 winLoss.src = '../assets/img/loss.png';
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+                jabbaLaugh.play();
                 checkRoundOver();
                 return;
             } else {

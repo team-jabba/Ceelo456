@@ -10,10 +10,12 @@
 html {
     overflow: none;
     height: 100%;
+    width: 100%;
     background-image: url(../assets/img/Cantina.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: whitesmoke;
+    padding: 0px;
 }
 
 div {
@@ -25,6 +27,9 @@ div {
 
 header {
     display: grid;
+    width: 100vw;
+    margin: 0px;
+    background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
     justify-content: center;
@@ -80,5 +85,6 @@ h1{
 input {
     width: 40vh;
     font-family: 'space-age';
+    font-size: 1.4em;
 }
 
