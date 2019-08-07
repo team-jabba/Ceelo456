@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "distant-galaxy";
+    src:url("../assets//fonts/distant-galaxy.ttf")
+}
+
+@font-face {
+    font-family: "space-age";
+    src:url("../assets//fonts/space-age.ttf")
+}
+
 html {
     overflow: none;
     height: 100%;
@@ -35,8 +45,17 @@ nav {
     height: auto;
 }
 
-h1{
+h1 {
     text-align: center;
+    font-family: 'space-age';
+    font-size: 3em;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'space-age';
+    color: darkred;
+    font-size: 2em;
 }
 
 input {
