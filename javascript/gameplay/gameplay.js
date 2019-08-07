@@ -1,4 +1,6 @@
 import { checkAutoResult } from './checkAutoResult.js';
+import { getPoints } from './getPoints.js';
+import { updateMoney } from './gambling.js';
 // import { getPoints } from './getPoints.js';
 // import { checkForPair } from './checkForPair.js';
 
@@ -10,6 +12,8 @@ const bottomFirst = document.getElementById('bottom-first');
 const bottomSecond = document.getElementById('bottom-second');
 const bottomThird = document.getElementById('bottom-third');
 const winLoss = document.getElementById('win-loss');
+const bossBankMoney = document.getElementById('boss-bank-display');
+const playerBankMoney = document.getElementById('player-bank-display');
 
 const srcArray = [
     '../assets/img/dice1.png',
@@ -32,41 +36,68 @@ const bottomArray = [
     bottomThird
 ];
 let bankerRoll = [];
-const delayInMilliseconds = 10;
+let nonBankerRoll = [];
+// const delayInMilliseconds = 10;
+let wager = 200;
+
+
 rollButton.addEventListener('click', () => {
-    
     winLoss.classList.add('hidden');
-    bankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
-    
-    for(let i = 0; i < bankerRoll.length; i++) {
-        const number = bankerRoll[i];
-        topArray[i].src = srcArray[number - 1];
+    for(let i = 0; i < bottomArray.length; i ++) {
+        bottomArray[i].classList.add('hidden');
     }
     
-    if(checkAutoResult(bankerRoll)) {
-        if(checkAutoResult(bankerRoll) === 'win') {
-            winLoss.classList.remove('hidden');
-            winLoss.src = '../assets/img/loss.png';
-            return;
-        } else {
-            winLoss.classList.remove('hidden');
-            winLoss.src = '../assets/img/win.png';
-            return;
+    let bossBank = parseInt(bossBankMoney.textContent);
+    let playerBank = parseInt(playerBankMoney.textContent);
+    let flag = 0; 
+    while(flag === 0) {
+        
+        bankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
+        for(let i = 0; i < bankerRoll.length; i++) {
+            const number = bankerRoll[i];
+            topArray[i].src = srcArray[number - 1];
+        }
+    
+        if(checkAutoResult(bankerRoll)) {
+            if(checkAutoResult(bankerRoll) === 'win') {
+                winLoss.classList.remove('hidden');
+                winLoss.src = '../assets/img/loss.png';
+                bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
+                playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+                return;
+            } else {
+                winLoss.classList.remove('hidden');
+                winLoss.src = '../assets/img/win.png';
+                bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
+                playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+                return;
+            }
+        }
+        if(getPoints(bankerRoll)) {
+            flag = 1;
         }
     }
 
-
     // let bankerPoints = getPoints(bankerRoll);
 
-    setTimeout(function() {
-        let nonBankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
+    // setTimeout(function() {
+    flag = 0;
+    while(flag === 0) {
+        nonBankerRoll = Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
+        for(let i = 0; i < bottomArray.length; i ++) {
+            bottomArray[i].classList.remove('hidden');
+        }
         if(checkAutoResult(nonBankerRoll)) {
             if(checkAutoResult(nonBankerRoll) === 'win') {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/win.png';
+                playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+                bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
             } else {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/loss.png';
+                playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+                bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
             }
         }
         for(let i = 0; i < nonBankerRoll.length; i++) {
@@ -74,6 +105,26 @@ rollButton.addEventListener('click', () => {
             bottomArray[i].src = srcArray[number - 1];
         }
         // let nonBankerPoints = getPoints(nonBankerRoll);
-        return;
-    }, delayInMilliseconds);
+        if(getPoints(nonBankerRoll)) {
+            flag = 1;
+        }
+    // }, delayInMilliseconds);
+    }
+
+    if(getPoints(bankerRoll) > getPoints(nonBankerRoll)) {
+        winLoss.classList.remove('hidden');
+        winLoss.src = '../assets/img/loss.png';
+        bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
+        playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+    }
+    else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
+        winLoss.classList.remove('hidden');
+        winLoss.src = '';
+    }
+    else {
+        winLoss.classList.remove('hidden');
+        winLoss.src = '../assets/img/win.png';
+        bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
+        playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+    }
 });
