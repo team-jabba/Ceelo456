@@ -61,8 +61,9 @@ rollButton.addEventListener('click', () => {
                 winLoss.src = '../assets/img/loss.png';
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
-                if(bossBank === 0 || playerBank === 0) {
-                    window.location = 'results.html';
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
                 }
                 return;
             } else {
@@ -70,8 +71,9 @@ rollButton.addEventListener('click', () => {
                 winLoss.src = '../assets/img/win.png';
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
-                if(bossBank === 0 || playerBank === 0) {
-                    window.location = 'results.html';
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
                 }
                 return;
             }
@@ -92,16 +94,18 @@ rollButton.addEventListener('click', () => {
                 winLoss.src = '../assets/img/win.png';
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
-                if(bossBank === 0 || playerBank === 0) {
-                    window.location = 'results.html';
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
                 }
             } else {
                 winLoss.classList.remove('hidden');
                 winLoss.src = '../assets/img/loss.png';
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
-                if(bossBank === 0 || playerBank === 0) {
-                    window.location = 'results.html';
+                if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+                    rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+                    rollButton.textContent = 'Meet Your Fate...';
                 }
             }
         }
@@ -118,8 +122,9 @@ rollButton.addEventListener('click', () => {
         winLoss.src = '../assets/img/loss.png';
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
-        if(bossBank === 0 || playerBank === 0) {
-            window.location = 'results.html';
+        if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+            rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+            rollButton.textContent = 'Meet Your Fate...';
         }
     }
     else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
@@ -131,8 +136,9 @@ rollButton.addEventListener('click', () => {
         winLoss.src = '../assets/img/win.png';
         bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
         playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
-        if(bossBank === 0 || playerBank === 0) {
-            window.location = 'results.html';
+        if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+            rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
+            rollButton.textContent = 'Meet Your Fate...';
         }
     }
 });
