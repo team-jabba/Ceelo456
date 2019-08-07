@@ -5,5 +5,5 @@ const goButton = document.getElementById('go-button');
 
 goButton.addEventListener('click', () => {
     store.save('username', userName.value);
-
+    window.location = './html/gameplay.html';
 });

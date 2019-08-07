@@ -3,3 +3,4 @@ import './getPoints.test.js';
 import './checkForPair.test.js';
 import './checkAutoResult.test.js';
 import './gambling.test.js';
+import './bank.tests.js';
