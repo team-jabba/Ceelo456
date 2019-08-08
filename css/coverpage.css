@@ -1,7 +1,7 @@
 body {
     background-image: url('../assets/img/Cover-Page-Final.png');
     background-repeat: no-repeat;
-    background-size: 1700px 900px;
+    background-size: cover;
 }
 
 button {
