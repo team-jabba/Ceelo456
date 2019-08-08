@@ -15,13 +15,22 @@ const bottomThird = document.getElementById('bottom-third');
 const winLoss = document.getElementById('win-loss');
 const bossBankMoney = document.getElementById('boss-bank-display');
 const playerBankMoney = document.getElementById('player-bank-display');
-const jabbaLaugh = document.getElementById('jabba-laugh');
 const salaciousLaugh = document.getElementById('salacious-laugh');
+const main = document.getElementById('main');
+const opponentNameDisplay = document.getElementById('opponent-name');
 const diceSound1 = document.getElementById('dice-sound-1');
 const diceSound2 = document.getElementById('dice-sound-2');
 const diceSound3 = document.getElementById('dice-sound-3');
-const main = document.getElementById('main');
-const opponentNameDisplay = document.getElementById('opponent-name');
+const jabbaLaugh1 = document.getElementById('jabba-laugh-1');
+const jabbaLaugh2 = document.getElementById('jabba-laugh-2');
+const jabbaLaugh3 = document.getElementById('jabba-laugh-3');
+const inconcievable1 = document.getElementById('inconcievable-1');
+const inconcievable2 = document.getElementById('inconcievable-2');
+const inconcievable3 = document.getElementById('inconcievable-3');
+const coinSound1 = document.getElementById('coin-sound-1');
+const coinSound2 = document.getElementById('coin-sound-2');
+const coinSound3 = document.getElementById('coin-sound-3');
+const pityTheFool = document.getElementById('mr-t-pity');
 
 const playerName = document.getElementById('player-name');
 
@@ -98,6 +107,9 @@ rollButton.addEventListener('click', () => {
     for(let i = 0; i < topArray.length; i++) {
         topArray[i].classList.remove('hidden');
     }
+    for(let i = 0; i < bottomArray.length; i++) {
+        bottomArray[i].classList.add('hidden');
+    }
     let bossBank = checkBank(bossBankMoney);
     let playerBank = checkBank(playerBankMoney);
     let flag = 0;
@@ -107,19 +119,20 @@ rollButton.addEventListener('click', () => {
             const number = bankerRoll[i];
             topArray[i].src = srcArrayRed[number - 1];
         }
- 
+
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
                 showLossMessage();
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
-                jabbaLaugh.play();
+                playOpponentLaugh();
                 checkRoundOver();
                 return;
             } else {
                 showWinMessage();
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+                playOpponentCry();
                 checkRoundOver();
                 return;
             }
@@ -143,6 +156,7 @@ rollButton.addEventListener('click', () => {
                 showWinMessage();
                 playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
                 bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
+                playRandomCoinSound();
                 checkRoundOver();
 
             } else {
@@ -169,9 +183,7 @@ rollButton.addEventListener('click', () => {
         checkRoundOver();
     }
     else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
-        setTimeout(function() {
-            showDrawMessage();
-        }, 5000);
+        showDrawMessage();
         salaciousLaugh.play();
     }
     else {
@@ -215,4 +227,39 @@ function playRandomDiceSound() {
     if(number === 1) { diceSound1.play(); }
     else if(number === 2) { diceSound2.play(); }
     else { diceSound3.play(); }
+}
+
+function playRandomCoinSound() {
+    let number = rollDice()[0] / 2;
+    if(number === 1) { coinSound1.play(); }
+    else if(number === 2) { coinSound2.play(); }
+    else { coinSound3.play(); }
+}
+
+function playRandomJabbaLaugh() {
+    let number = rollDice()[0] / 2;
+    if(number === 1) { jabbaLaugh1.play(); }
+    else if(number === 2) { jabbaLaugh2.play(); }
+    else { jabbaLaugh3.play(); }
+}
+
+function playRandomInconcievable() {
+    let number = rollDice()[0] / 2;
+    if(number === 1) { inconcievable1.play(); }
+    else if(number === 2) { inconcievable2.play(); }
+    else { inconcievable3.play(); }
+}
+
+function playOpponentLaugh() {
+    if(opponentName[playerLevel] === 'Jabba') {
+        playRandomJabbaLaugh();
+    } else if(opponentName[playerLevel] === 'Mr. T') {
+        pityTheFool.play();
+    }
+}
+
+function playOpponentCry() {
+    if(opponentName[playerLevel] === 'Vizzini') {
+        playRandomInconcievable();
+    }
 }
