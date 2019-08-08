@@ -57,6 +57,8 @@ let bankerRoll = [];
 let nonBankerRoll = [];
 let wager = 200;
 
+
+
 rollButton.addEventListener('click', () => {
     diceSound1.play();
     winLoss.classList.add('hidden');
@@ -74,6 +76,7 @@ rollButton.addEventListener('click', () => {
             const number = bankerRoll[i];
             topArray[i].src = srcArrayRed[number - 1];
         }
+
 
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
@@ -140,7 +143,6 @@ rollButton.addEventListener('click', () => {
         checkRoundOver();
     }
 });
-
 
 function checkRoundOver() {
     if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
