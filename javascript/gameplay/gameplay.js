@@ -77,6 +77,7 @@ rollButton.addEventListener('click', () => {
             topArray[i].src = srcArrayRed[number - 1];
         }
 
+
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
                 showLossMessage();
