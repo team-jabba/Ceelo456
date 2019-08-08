@@ -5,7 +5,7 @@ const storyLine = document.getElementById('story-line');
 const continueButton = document.getElementById('continue');
 
 const playerMoney = store.get('player-money');
-let level = store.get('player-level');
+let level = store.get('level');
 
 
 if(level <= 2) {

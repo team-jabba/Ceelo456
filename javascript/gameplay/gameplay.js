@@ -76,7 +76,6 @@ bossBankMoney.textContent = opponentBankStart[playerLevel];
 playerBankMoney.textContent = playerStartMoney;
 const wager = wagerArray[playerLevel];
 
-
 const topArray = [
     topFirst,
     topSecond,
