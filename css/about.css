@@ -27,11 +27,6 @@ header {
     color: white;
 }
 
-nav {
-    display: inline-block;
-    text-align: center;
-}
-
 #jabbadicewhite {
     max-width: 60%;
     height: auto;

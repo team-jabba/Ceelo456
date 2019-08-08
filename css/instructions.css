@@ -19,14 +19,27 @@ html {
 
 body {
     display: grid;
+    margin: 0;
 }
 
 header {
     display: grid;
     grid-template-columns: 25% 50% 25%;
+    width: 100%;
+    margin: 0px;
+    background-color: rgba(0, 0, 0, 0.502);
     height: auto;
     justify-content: center;
     align-items: center
+}
+
+main {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin:5%;
 }
 
 h1 {
@@ -43,10 +56,6 @@ h2 {
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 3vh;
-}
-
-nav {
-    text-align: center; 
 }
 
 button {
@@ -76,3 +85,8 @@ button:hover {
     height: auto;
 }
 
+#instructions {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5%;
+    text-align: center;
+}
