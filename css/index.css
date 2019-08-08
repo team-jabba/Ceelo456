@@ -18,6 +18,11 @@ html {
     padding: 0px;
 }
 
+body {
+    display: grid;
+    margin: 0;
+}
+
 div {
     display: grid;
     justify-content: center;
@@ -34,11 +39,6 @@ header {
     height: auto;
     justify-content: center;
     align-items: center;
-}
-
-nav {
-    display: inline-block;
-    text-align: center; 
 }
 
 main {
