@@ -9,7 +9,7 @@
 
 html {
     overflow: none;
-    height: 1150px;
+    height: auto;
     background-image: url(../assets/img/horsehead-nebula.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,8 +62,8 @@ main {
 }
 
 #luke img {
-    margin-top: 100px;
-    height: 205px;
+    margin-top: 85px;
+    height: 240px;
 }
 
 
@@ -97,6 +97,7 @@ main {
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: "space-age";
+    margin: 3%;
 }
 
 #luke-bio{
@@ -106,6 +107,7 @@ main {
     height: auto;
     transform: translate(0px, 20px);
     font-family: "space-age";
+    margin: 3%;
 }
 
 #luke-name{
