@@ -9,7 +9,7 @@
 
 html {
     overflow: none;
-    height: 1150px;
+    height: auto;
     background-image: url(../assets/img/horsehead-nebula.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,6 +18,7 @@ html {
 
 body {
     display: grid;
+    margin: 0;
 }
 
 header {
@@ -57,12 +58,12 @@ main {
 }
 
 #kam img {
-    height: 250px;
+    height: 300px;
 }
 
 #luke img {
-    margin-top: 100px;
-    height: 205px;
+    margin-top: 85px;
+    height: 240px;
 }
 
 
@@ -81,11 +82,11 @@ main {
     transform: scale(1.2);
 }
 #dylan img:hover {
-    box-shadow: 0px 0px 20px 10px rgb(198, 0, 198);
+    box-shadow: 0px 0px 20px 10px rgb(255, 3, 255);
     transform: scale(1.1);
 }
 #luke img:hover {
-    box-shadow: 0px 0px 20px 10px rgb(0, 255, 0);
+    box-shadow: 0px 0px 20px 10px rgb(30, 255, 0);
     transform: scale(1.4);
 
 }
@@ -96,6 +97,7 @@ main {
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: "space-age";
+    margin: 3%;
 }
 
 #luke-bio{
@@ -105,6 +107,7 @@ main {
     height: auto;
     transform: translate(0px, 20px);
     font-family: "space-age";
+    margin: 3%;
 }
 
 #luke-name{
@@ -136,5 +139,5 @@ button:focus {
 
 button:hover {
     transform: translate3d(-2px, -2px, 10px);
-    box-shadow: 0px 0px 20px 10px rgb(0, 0, 255);
+    box-shadow: 0px 0px 20px 10px rgb(30, 255, 0);
 }
