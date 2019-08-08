@@ -48,6 +48,8 @@ let bankerRoll = [];
 let nonBankerRoll = [];
 let wager = 200;
 
+
+
 rollButton.addEventListener('click', () => {
     diceSound1.play();
     winLoss.classList.add('hidden');
@@ -132,7 +134,6 @@ rollButton.addEventListener('click', () => {
     }
 });
 
-
 function checkRoundOver() {
     if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
         rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
@@ -140,21 +141,21 @@ function checkRoundOver() {
     }
 }
 
-function rollDice(){
+function rollDice() {
     return Array.from({ length: 3 }, () => Math.floor((Math.random() * 6)) + 1);
 }
 
-function showLossMessage(){
+function showLossMessage() {
     winLoss.classList.remove('hidden');
     winLoss.src = '../assets/img/loss.png';
 }
 
-function showWinMessage(){
+function showWinMessage() {
     winLoss.classList.remove('hidden');
     winLoss.src = '../assets/img/win.png';
 }
 
-function showDrawMessage(){
+function showDrawMessage() {
     winLoss.classList.remove('hidden');
     winLoss.src = '../assets/img/draw!.png';
 }
