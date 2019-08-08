@@ -21,13 +21,22 @@ const diceSound1 = document.getElementById('dice-sound-1');
 
 const playerName = document.getElementById('player-name');
 
-const srcArray = [
-    '../assets/img/dice1.png',
-    '../assets/img/dice2.png',
-    '../assets/img/dice3.png',
-    '../assets/img/dice4.png',
-    '../assets/img/dice5.png',
-    '../assets/img/dice6.png',
+const srcArrayGreen = [
+    '../assets/img/green-one.png',
+    '../assets/img/green-two.png',
+    '../assets/img/green-three.png',
+    '../assets/img/green-four.png',
+    '../assets/img/green-five.png',
+    '../assets/img/green-six.png',
+];
+
+const srcArrayRed = [
+    '../assets/img/red-one.png',
+    '../assets/img/red-two.png',
+    '../assets/img/red-three.png',
+    '../assets/img/red-four.png',
+    '../assets/img/red-five.png',
+    '../assets/img/red-six.png',
 ];
 
 const topArray = [
@@ -63,7 +72,7 @@ rollButton.addEventListener('click', () => {
         bankerRoll = rollDice();
         for(let i = 0; i < bankerRoll.length; i++) {
             const number = bankerRoll[i];
-            topArray[i].src = srcArray[number - 1];
+            topArray[i].src = srcArrayRed[number - 1];
         }
 
         if(checkAutoResult(bankerRoll)) {
@@ -108,7 +117,7 @@ rollButton.addEventListener('click', () => {
         }
         for(let i = 0; i < nonBankerRoll.length; i++) {
             const number = nonBankerRoll[i];
-            bottomArray[i].src = srcArray[number - 1];
+            bottomArray[i].src = srcArrayGreen[number - 1];
         }
         if(getPoints(nonBankerRoll)) {
             flag = 1;
