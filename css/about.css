@@ -9,7 +9,7 @@
 
 html {
     overflow: none;
-    height: auto;
+    height: 900px;
     background-image: url(../assets/img/horsehead-nebula.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,8 +46,8 @@ h1 {
 
 main {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    text-justify: right;
     align-content: center;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
@@ -55,17 +55,19 @@ main {
 
 #dylan img {
     height: 300px;
+    margin-left: 90px;
 }
 
 #kam img {
-    height: 300px;
+    height: 220px;
+    transform: translate(0px, 0px);
 }
 
 #luke img {
-    margin-top: 85px;
-    height: 240px;
+    margin-top: 100px;
+    height: 250px;
+    margin-left: 90px;
 }
-
 
 #pat img {
     height: 250px;
@@ -86,18 +88,25 @@ main {
     transform: scale(1.1);
 }
 #luke img:hover {
-    box-shadow: 0px 0px 20px 10px rgb(30, 255, 0);
-    transform: scale(1.4);
-
+    box-shadow: 0px 0px 20px 10px rgb(0, 255, 0);
+    transform: scale(1.2);
 }
 
-#dylan-bio, #kam-bio, #pat-bio {
+#dylan-bio {
     /* margin-top: 35px; */
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
-    font-family: "space-age";
-    margin: 3%;
+    font-family: 'Roboto', sans-serif;
+    transform: translate(-150px, 0px);
+}
+
+#kam-bio {
+    background-color: rgba(0, 0, 0, 0.502);
+    grid-template-columns: 25% 50% 25%;
+    height: auto;
+    font-family: 'Roboto', sans-serif;
+    transform: translate(-130px, 0px)
 }
 
 #luke-bio{
@@ -105,18 +114,29 @@ main {
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
-    transform: translate(0px, 20px);
-    font-family: "space-age";
-    margin: 3%;
+    transform: translate(-125px, 330px);
+    font-family: 'Roboto', sans-serif;
+}
+#pat-bio{
+    background-color: rgba(0, 0, 0, 0.502);
+    grid-template-columns: 25% 50% 25%;
+    height: auto;
+    transform: translate(-170px, 250px);
+    font-family: 'Roboto', sans-serif;
+}
+
+#pat-name{
+    transform: translate(0px, 250px);
+    font-family: 'Roboto', sans-serif;
 }
 
 #luke-name{
-    transform: translate(0px, 20px);
-    font-family: "space-age";
+    transform: translate(0px, 330px);
+    color: black;
 }
 
-#name{
-    font-family: "space-age";
+#kam-name, #dylan-name{
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
 }
 
