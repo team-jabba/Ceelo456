@@ -1,24 +1,22 @@
-
 * {
     box-sizing: border-box;
 }
 
 @font-face {
     font-family: "space-age";
-    src:url("../assets/fonts/space-age.ttf")
+    src: url("../assets/fonts/space-age.ttf")
 }
 
 html {
     overflow: none;
     height: 100%;
-    background-image: url(../assets/img/coruscant-nightlife.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     color: whitesmoke;
 }
 
 body {
     display: grid;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 header {
@@ -31,15 +29,15 @@ header {
 
 nav {
     display: inline-block;
-    text-align: center; 
+    text-align: center;
 }
 
 #jabbadicewhite {
-    max-width:60%;
+    max-width: 60%;
     height: auto;
 }
 
-h1{
+h1 {
     text-align: center;
     font-family: 'space-age';
 }
