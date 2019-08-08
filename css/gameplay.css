@@ -5,12 +5,12 @@ html {
 
 @font-face {
     font-family: "colored-crayons";
-    src: url("../assets/fonts/colored-crayons.TTF");
+    src: url("../assets/fonts/colored-crayons.ttf");
 }
 
 @font-face {
     font-family: "aurebesh";
-    src: url("../assets/fonts/aurebesh.TTF");
+    src: url("../assets/fonts/aurebesh.ttf");
 }
 
 @font-face {
@@ -33,6 +33,7 @@ main {
     grid-template-areas: "logo dice6 dice5 dice4 ." ". dice3 dice2 dice1 win-loss";
     grid-area: coverPhoto;
     background-image: url(../assets/img/jabba.jpeg);
+    /* background-image: url(../assets/img/vizzini.png); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 30%;
