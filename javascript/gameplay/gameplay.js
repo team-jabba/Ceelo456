@@ -18,6 +18,10 @@ const playerBankMoney = document.getElementById('player-bank-display');
 const jabbaLaugh = document.getElementById('jabba-laugh');
 const salaciousLaugh = document.getElementById('salacious-laugh');
 const diceSound1 = document.getElementById('dice-sound-1');
+const diceSound2 = document.getElementById('dice-sound-2');
+const diceSound3 = document.getElementById('dice-sound-3');
+const main = document.getElementById('main');
+const opponentNameDisplay = document.getElementById('opponent-name');
 
 const playerName = document.getElementById('player-name');
 
@@ -39,6 +43,40 @@ const srcArrayRed = [
     '../assets/img/red-six.png',
 ];
 
+const backgroundSrcArray = [
+    'url(../assets/img/mr-t.png)',
+    'url(../assets/img/vizzini.png)',
+    'url(../assets/img/jabba.jpeg)',
+];
+
+const opponentName = [
+    'Mr. T',
+    'Vizzini',
+    'Jabba',
+];
+
+const opponentBankStart = [
+    '400',
+    '1400',
+    '3200',
+];
+
+const wagerArray = [
+    100,
+    200,
+    400,
+];
+
+const playerLevel = store.get('level');
+const playerStartMoney = store.get('player-money');
+
+main.style.backgroundImage = backgroundSrcArray[playerLevel];
+opponentNameDisplay.textContent = opponentName[playerLevel];
+bossBankMoney.textContent = opponentBankStart[playerLevel];
+playerBankMoney.textContent = playerStartMoney;
+const wager = wagerArray[playerLevel];
+
+
 const topArray = [
     topFirst,
     topSecond,
@@ -55,27 +93,22 @@ playerName.textContent = store.get('username');
 
 let bankerRoll = [];
 let nonBankerRoll = [];
-let wager = 200;
-
-
 
 rollButton.addEventListener('click', () => {
-    diceSound1.play();
     winLoss.classList.add('hidden');
-    for(let i = 0; i < bottomArray.length; i++) {
-        bottomArray[i].classList.add('hidden');
+    for(let i = 0; i < topArray.length; i++) {
+        topArray[i].classList.remove('hidden');
     }
     let bossBank = checkBank(bossBankMoney);
     let playerBank = checkBank(playerBankMoney);
     let flag = 0;
-
     while(flag === 0) {
         bankerRoll = rollDice();
         for(let i = 0; i < bankerRoll.length; i++) {
             const number = bankerRoll[i];
             topArray[i].src = srcArrayRed[number - 1];
         }
-
+ 
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
                 showLossMessage();
@@ -100,6 +133,7 @@ rollButton.addEventListener('click', () => {
     flag = 0;
     while(flag === 0) {
         nonBankerRoll = rollDice();
+        playRandomDiceSound();
         for(let i = 0; i < bottomArray.length; i++) {
             bottomArray[i].classList.remove('hidden');
         }
@@ -150,7 +184,7 @@ rollButton.addEventListener('click', () => {
 });
 
 function checkRoundOver() {
-    if(checkBank(bossBankMoney) === 0 || checkBank(playerBankMoney) === 0) {
+    if(checkBank(bossBankMoney) <= 0 || checkBank(playerBankMoney) <= 0) {
         rollButton.setAttribute('onclick', "window.location.href = 'results.html';");
         rollButton.textContent = 'Meet Your Fate...';
         store.save('boss-money', checkBank(bossBankMoney));
@@ -175,4 +209,11 @@ function showWinMessage() {
 function showDrawMessage() {
     winLoss.classList.remove('hidden');
     winLoss.src = '../assets/img/draw!.png';
+}
+
+function playRandomDiceSound() {
+    let number = rollDice()[0] / 2;
+    if(number === 1) { diceSound1.play(); }
+    else if(number === 2) { diceSound2.play(); }
+    else { diceSound3.play(); }
 }
