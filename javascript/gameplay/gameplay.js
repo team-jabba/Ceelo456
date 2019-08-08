@@ -65,7 +65,6 @@ rollButton.addEventListener('click', () => {
     for(let i = 0; i < bottomArray.length; i++) {
         bottomArray[i].classList.add('hidden');
     }
-
     let bossBank = checkBank(bossBankMoney);
     let playerBank = checkBank(playerBankMoney);
     let flag = 0;
@@ -76,7 +75,6 @@ rollButton.addEventListener('click', () => {
             const number = bankerRoll[i];
             topArray[i].src = srcArrayRed[number - 1];
         }
-
 
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
@@ -98,12 +96,15 @@ rollButton.addEventListener('click', () => {
             flag = 1;
         }
     }
+
     flag = 0;
     while(flag === 0) {
         nonBankerRoll = rollDice();
         for(let i = 0; i < bottomArray.length; i++) {
             bottomArray[i].classList.remove('hidden');
         }
+
+
         if(checkAutoResult(nonBankerRoll)) {
             if(checkAutoResult(nonBankerRoll) === 'win') {
                 showWinMessage();
@@ -118,10 +119,12 @@ rollButton.addEventListener('click', () => {
                 checkRoundOver();
             }
         }
+
         for(let i = 0; i < nonBankerRoll.length; i++) {
             const number = nonBankerRoll[i];
             bottomArray[i].src = srcArrayGreen[number - 1];
         }
+
         if(getPoints(nonBankerRoll)) {
             flag = 1;
         }
@@ -133,7 +136,9 @@ rollButton.addEventListener('click', () => {
         checkRoundOver();
     }
     else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
-        showDrawMessage();
+        setTimeout(function() {
+            showDrawMessage();
+        }, 5000);
         salaciousLaugh.play();
     }
     else {
