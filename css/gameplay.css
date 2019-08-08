@@ -32,7 +32,7 @@ main {
     grid-template-rows: 60% 40%;
     grid-template-areas: "logo dice6 dice5 dice4 ." ". dice3 dice2 dice1 win-loss";
     grid-area: coverPhoto;
-    background-image: url(../assets/img/jabba.jpeg);
+    /* background-image: url(../assets/img/jabba.jpeg); */
     /* background-image: url(../assets/img/vizzini.png); */
     background-repeat: no-repeat;
     background-size: cover;
@@ -55,7 +55,7 @@ footer {
     font-family: 'colored-crayons';
     display: flex;
     align-content: center;
-    margin-top: 4%;
+    margin-top: 2.5%;
 }
 
 #gamePlayInfo>p {
@@ -78,7 +78,7 @@ footer {
     height: 80px;
     text-align: center;
     font-size: 200%;
-    font-family: 'aurebesh';
+    font-family: 'space-age';
     line-height: 80px;
     box-shadow: 0px 0px 80px 30px black;
     background-color: rgb(122, 126, 48);
@@ -113,7 +113,7 @@ button:hover {
     text-align: center;
     line-height: 80px;
     box-shadow: 0px 0px 80px 30px black;
-    font-family: 'aurebesh';
+    font-family: 'space-age';
     font-size: 200%;
     background-color: rgb(122, 126, 48);
 }
@@ -173,7 +173,6 @@ button:hover {
 }
 
 .hidden {
-    background: red;
     display: none;
 }
 

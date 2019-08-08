@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jabba Dice</title>
-    <link rel="stylesheet" href="../css/gameplay.css">
-</head>
-<body>
-    <main>
-        <img class="logo" src="../assets/img/jabbDice.png">
-        <img class="dicetop" id="top-first" src="../assets/img/dice6.png" alt="dice6">
-        <img class="dicetop" id="top-second" src="../assets/img/dice5.png" alt="dice5">
-        <img class="dicetop" id="top-third" src="../assets/img/dice4.png" alt="dice4">
-        <img class="dicebottom" id="bottom-first" src="../assets/img/dice3.png" alt="dice3">
-        <img class="dicebottom" id="bottom-second" src="../assets/img/dice2.png" alt="dice2">
-        <img class="dicebottom" id="bottom-third" src="../assets/img/dice1.png" alt="dice1">
-        <img id="win-loss" src="" alt="win-loss" class="hidden">
-    </main>
-    <footer>
-    <div id="gamePlayInfo">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Jabba Dice</title>
+        <link rel="stylesheet" href="../css/gameplay.css">
+    </head>
+    <body>
+        <main id="main">
+            <img class="logo" src="../assets/img/jabbDice.png">
+            <img class="dicetop hidden" id="top-first" src="../assets/img/dice6.png"
+                alt="dice6">
+            <img class="dicetop hidden" id="top-second" src="../assets/img/dice5.png"
+                alt="dice5">
+            <img class="dicetop hidden" id="top-third" src="../assets/img/dice4.png"
+                alt="dice4">
+            <img class="dicebottom hidden " id="bottom-first"
+                src="../assets/img/dice3.png" alt="dice3">
+            <img class="dicebottom hidden" id="bottom-second"
+                src="../assets/img/dice2.png" alt="dice2">
+            <img class="dicebottom hidden" id="bottom-third"
+                src="../assets/img/dice1.png" alt="dice1">
+            <img id="win-loss" src="" alt="win-loss" class="hidden">
+        </main>
+        <footer>
+            <div id="gamePlayInfo">
+                <div id="brickImage"></div>
+                <p class="boss"><span id="opponent-name"></span>'S BANK</p>
+                <p class="boss-bank">$<span id="boss-bank-display"></span></p>
+                <button id="roll-button" class="roll">Roll Dice</button>
+                <p class="player-bank">$<span id="player-bank-display">1000</span></p>
+                <p class="player"><span id="player-name">Luke</span>'s Bank</p>
+            </div>
 
-            <div id="brickImage"></div>
-            <p class="boss">JABBA'S BANK</p>
-            <p class="boss-bank">$<span id="boss-bank-display">1000</span></p>
-            <button id="roll-button" class="roll" >Roll Dice</button>
-            <p class="player-bank">$<span id="player-bank-display">1000</span></p>
-            <p class="player"><span id="player-name">Luke</span>'s Bank</p>
-    </div>
-
-    <audio id="jabba-laugh" src="../assets/audio/JABBALAF.wav"></audio>
-    <audio id="salacious-laugh" src="../assets/audio/salaciouscrumb.mp3"></audio>
-    <audio id="dice-sound-1" src="../assets/audio/dicesound1.mp3"></audio>
-
-    </footer>
-   <script type="module" src="../javascript/gameplay/gameplay.js"></script>
-   <script type="module" src="../javascript/results.js"></script>
-</body>
+            <audio id="jabba-laugh" src="../assets/audio/JABBALAF.wav"></audio>
+            <audio id="salacious-laugh"
+                src="../assets/audio/salaciouscrumb.mp3"></audio>
+            <audio id="dice-sound-1" src="../assets/audio/dicesound1.mp3"></audio>
+            <audio id="dice-sound-2" src="../assets/audio/dicesound2.mp3"></audio>
+            <audio id="dice-sound-3" src="../assets/audio/dicesound3.mp3"></audio>
+        </footer>
+        <script type="module" src="../javascript/gameplay/gameplay.js"></script>
+        <script type="module" src="../javascript/results.js"></script>
+    </body>
 </html>

@@ -65,4 +65,21 @@ button:hover {
 
 p {
     font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+main{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+#continue{
+    position: fixed;
+    bottom: 0px;
 }
