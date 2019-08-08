@@ -83,3 +83,8 @@ main{
     position: fixed;
     bottom: 0px;
 }
+
+#story-line {
+    font-size: 32pt;
+    font-family: 'Roboto', sans-serif;
+}
