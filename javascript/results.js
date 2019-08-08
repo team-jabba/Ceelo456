@@ -12,7 +12,7 @@ if(level <= 2) {
     document.body.style.backgroundImage = 'url(../assets/img/story-page.png)';
     if(level === 0) {
         if(playerMoney > 0) {
-            storyLine.textContent = 'Good job beating Mr. T!';
+            storyLine.textContent = 'Mr T. might pity the fool but you\'ve proved yourself not to be a fool! Now that you have all of Mr T\'s money it\'s time to test your wits because this next boss will challenge your intellect while stealing your money at the same time.';
             continueButton.textContent = 'Continue';
         } else {
             storyLine.textContent = 'Go hone your kung fu.';
@@ -25,7 +25,7 @@ if(level <= 2) {
             storyLine.textContent = 'Inconceivable!';
             continueButton.textContent = 'Continue';
         } else {
-            storyLine.textContent = 'The only thing worse than a bad merlot is a moron.';
+            storyLine.textContent = 'The only thing worse than a bad merlot is a moron. Looks like Vizzini is drinking bad merlot, he will have to settle for some box wine from the local grocery outlet tonight because we just took all his money. Good thing too because your next opponent is a real shark.... actually we are pretty sure he is a giant worm but either way he smells, he cheats, and he has a lot of money to bet..... Good luck.' ;
             continueButton.textContent = 'Restart';
             continueButton.setAttribute('onclick', "window.location.href = '../index.html'");
             aboutUsButton.classList.remove('hidden');
