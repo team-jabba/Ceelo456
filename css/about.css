@@ -9,7 +9,7 @@
 
  html {
     overflow: none;
-    height: 900px;
+    height: 1000px;
     background-image: url(../assets/img/horsehead-nebula.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -65,40 +65,55 @@
  main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    text-justify: right;
-    align-content: center;
+    grid-template-rows: repeat(2, 375px);
+    text-justify: Center;
+    justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
- }
+
+    font-size: 26px;
+    overflow: hidden;
+}
 
  #dylan img {
     height: 300px;
-    margin-left: 90px;
- }
+    margin-left: 130px;
+    margin-top: 10px;
+    grid-row-start: 1;
+    grid-column-start: 1;
+}
 
- #kam img {
+#kam-img {
     height: 220px;
-    transform: translate(0px, 0px);
- }
+    margin-top: 50px;
+    margin-left: 30px;
+    grid-row: 1;
+    grid-column: 3;
+}
 
- #luke img {
-    margin-top: 100px;
+#luke-img {
+    margin-top: 40px;
+    height: 280px;
+    margin-left: 120px;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#pat-img {
     height: 250px;
-    margin-left: 90px;
- }
+    margin-top: 80px;
+    margin-left: 60px;
+    grid-row: 2;
+    grid-column: 3;
+    align-content: center;
+}
 
- #pat img {
-    height: 250px;
-    margin-top: 100px;
- }
-
- #pat img:hover {
+#pat-img:hover {
     box-shadow: 0px 0px 20px 10px rgb(255, 0, 0);
     border-color: red;
     transform: scale(1.2);
- }
-
- #kam img:hover {
+}
+#kam-img:hover {
     box-shadow: 0px 0px 20px 10px rgb(0, 0, 255);
     transform: scale(1.2);
  }
@@ -106,9 +121,8 @@
  #dylan img:hover {
     box-shadow: 0px 0px 20px 10px rgb(255, 3, 255);
     transform: scale(1.1);
- }
-
- #luke img:hover {
+}
+#luke-img:hover {
     box-shadow: 0px 0px 20px 10px rgb(0, 255, 0);
     transform: scale(1.2);
  }
@@ -119,45 +133,58 @@
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: 'Roboto', sans-serif;
-    transform: translate(-60px, 0px);
- }
+
+    grid-row: 1;
+    grid-column: 2;
+    overflow: scroll;
+}
+
 
  #kam-bio {
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: 'Roboto', sans-serif;
-    transform: translate(-35px, 0px)
- }
+    grid-row: 1;
+    grid-column: 4;
+    overflow: scroll;
+
+}
+
 
  #luke-bio{
     /* margin-top: 35px; */
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
-    transform: translate(-55px, 330px);
     font-family: 'Roboto', sans-serif;
- }
-
- #pat-bio{
+    grid-row: 2;
+    grid-column: 2;
+}
+#pat-bio{
     background-color: rgba(0, 0, 0, 0.502);
+    width: auto;
     grid-template-columns: 25% 50% 25%;
     height: auto;
-    transform: translate(-80px, 250px);
+    font-family: 'Roboto', sans-serif;
+    grid-row: 2;
+    grid-column: 4;
+    justify-content: center;
+}
+
+#pat-name{
     font-family: 'Roboto', sans-serif;
  }
 
- #pat-name{
-    transform: translate(0px, 250px);
-    font-family: 'Roboto', sans-serif;
- }
 
- #luke-name{
-    transform: translate(-50px, 330px);
+#luke-name{
     color: black;
- }
+    grid-row: 2;
+    grid-column: 2;
+}
 
- #kam-name, #dylan-name{
+#kam-name{
+
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
  }
