@@ -123,14 +123,10 @@ let nonBankerRoll = [];
 allInButton.addEventListener('click', () => {
     let bossBank = parseInt(bossBankMoney.textContent);
     let playerBank = parseInt(playerBankMoney.textContent);
-    console.log(bossBank);
-    console.log(playerBank);
     if(bossBank <= playerBank) {
         wager = bossBank;
-        console.log('wager: ', wager);
     } else {
         wager = playerBank;
-        console.log('wager: ', wager);
     }
 });
 
@@ -181,7 +177,6 @@ rollButton.addEventListener('click', () => {
         for(let i = 0; i < bottomArray.length; i++) {
             bottomArray[i].classList.remove('hidden');
         }
-
 
         if(checkAutoResult(nonBankerRoll) !== false) {
             if(checkAutoResult(nonBankerRoll) === 'win') {
