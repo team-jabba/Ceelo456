@@ -33,6 +33,9 @@ const coinSound1 = document.getElementById('coin-sound-1');
 const coinSound2 = document.getElementById('coin-sound-2');
 const coinSound3 = document.getElementById('coin-sound-3');
 const pityTheFool = document.getElementById('mr-t-pity');
+const vizziniIntro = document.getElementById('vizzini-intro');
+const mrTIntro = document.getElementById('mr-t-intro');
+const jabbaIntro = document.getElementById('jabba-intro');
 
 const playerName = document.getElementById('player-name');
 
@@ -84,6 +87,12 @@ const wagerArray = [
     400,
 ];
 
+const opponentIntro = [
+    mrTIntro,
+    vizziniIntro,
+    jabbaIntro
+];
+
 const playerLevel = store.get('level');
 
 main.style.backgroundImage = backgroundSrcArray[playerLevel];
@@ -92,6 +101,7 @@ bossBankMoney.textContent = opponentBankStart[playerLevel];
 playerBankMoney.textContent = playerBankStart[playerLevel];
 let wager = wagerArray[playerLevel];
 crumbImg.classList.add('hidden');
+opponentIntro[playerLevel].play();
 
 const topArray = [
     topFirst,
