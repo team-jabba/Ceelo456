@@ -91,3 +91,7 @@ input {
     font-family: 'space-age';
     font-size: 1.4em;
 }
+
+audio {
+    display: none;
+}
