@@ -1,46 +1,46 @@
 * {
     box-sizing: border-box;
-}
+ }
 
-@font-face {
+ @font-face {
     font-family: "space-age";
     src:url("../assets/fonts/space-age.ttf")
-}
+ }
 
-html {
+ html {
     overflow: none;
     height: 900px;
     background-image: url(../assets/img/horsehead-nebula.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: whitesmoke;
-}
+ }
 
-body {
+ body {
     display: grid;
     margin: 0;
-}
+ }
 
-header {
+ header {
     display: grid;
     grid-template-columns: 25% 50% 25%;
     background-color: rgba(0, 0, 0, 0.502);
     height: auto;
     justify-content: center;
     align-items: center;
-}
+ }
 
-#jabbadicewhite {
+ #jabbadicewhite {
     max-width: 60%;
     height: auto;
-}
+ }
 
-h1 {
+ h1 {
     font-family: "space-age";
     text-align: center;
-}
+ }
 
-button {
+ button {
     border: solid;
     margin: 20px;
     border-radius: 20px;
@@ -51,107 +51,113 @@ button {
     box-shadow: 0px 0px 30px 10px lightgray;
     background-color: black;
     color: white;
-}
+ }
 
-button:focus {
+ button:focus {
     outline: 0;
-}
+ }
 
-button:hover {
+ button:hover {
     transform: translate3d(-2px, -2px, 10px);
     box-shadow: 0px 0px 20px 10px rgb(30, 255, 0);
-}
+ }
 
-main {
+ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-justify: right;
     align-content: center;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-}
+ }
 
-#dylan img {
+ #dylan img {
     height: 300px;
     margin-left: 90px;
-}
+ }
 
-#dylan img:hover {
+ #kam img {
+    height: 220px;
+    transform: translate(0px, 0px);
+ }
+
+ #luke img {
+    margin-top: 100px;
+    height: 250px;
+    margin-left: 90px;
+ }
+
+ #pat img {
+    height: 250px;
+    margin-top: 100px;
+ }
+
+ #pat img:hover {
+    box-shadow: 0px 0px 20px 10px rgb(255, 0, 0);
+    border-color: red;
+    transform: scale(1.2);
+ }
+
+ #kam img:hover {
+    box-shadow: 0px 0px 20px 10px rgb(0, 0, 255);
+    transform: scale(1.2);
+ }
+
+ #dylan img:hover {
     box-shadow: 0px 0px 20px 10px rgb(255, 3, 255);
     transform: scale(1.1);
-}
+ }
 
-#kam-name, #dylan-name{
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-}
+ #luke img:hover {
+    box-shadow: 0px 0px 20px 10px rgb(0, 255, 0);
+    transform: scale(1.2);
+ }
 
-#dylan-bio {
+ #dylan-bio {
     /* margin-top: 35px; */
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: 'Roboto', sans-serif;
     transform: translate(-60px, 0px);
-}
+ }
 
-
-#kam-bio {
+ #kam-bio {
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: 'Roboto', sans-serif;
     transform: translate(-35px, 0px)
-}
+ }
 
-#luke-bio{
+ #luke-bio{
     /* margin-top: 35px; */
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
     transform: translate(-55px, 330px);
     font-family: 'Roboto', sans-serif;
-}
+ }
 
-#kam img {
-    height: 220px;
-    transform: translate(0px, 0px);
-}
-
-#kam img:hover {
-    box-shadow: 0px 0px 20px 10px rgb(0, 0, 255);
-    transform: scale(1.2);
-}
-
-#kam-bio {
+ #pat-bio{
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
     transform: translate(-80px, 250px);
     font-family: 'Roboto', sans-serif;
-    transform: translate(-130px, 0px)
-}
+ }
 
-#pat img {
-    height: 250px;
-    margin-top: 100px;
-}
-
-#luke-name{
-    transform: translate(-50px, 330px);
-    color: black;
-}
-
-#pat-name{
+ #pat-name{
     transform: translate(0px, 250px);
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
-}
+ }
 
-#pat-bio{
-    background-color: rgba(0, 0, 0, 0.502);
-    grid-template-columns: 25% 50% 25%;
-    height: auto;
-    transform: translate(-170px, 250px);
+ #luke-name{
+    transform: translate(-50px, 330px);
+    color: black;
+ }
+
+ #kam-name, #dylan-name{
     font-family: 'Roboto', sans-serif;
-}
+    font-size: 17px;
+ }
