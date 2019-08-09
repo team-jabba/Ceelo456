@@ -69,6 +69,7 @@ button:hover {
 main {
     display: grid;
     grid-template-columns: 20% 60% 20%;
+    grid-template-areas: ". instructions .";
     height: auto;
     justify-content: center;
     align-items: center;
@@ -79,6 +80,7 @@ main {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 5%;
     text-align: center;
+    grid-area: instructions;
 }
 
 h2 {
