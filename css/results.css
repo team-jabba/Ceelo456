@@ -63,11 +63,6 @@ button:hover {
     box-shadow: 0px 0px 20px 10px rgb(43, 160, 255);
 }
 
-p {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-}
-
 .hidden {
     display: none;
 }
@@ -79,12 +74,17 @@ main{
     align-items: center;
 }
 
-#continue{
-    position: fixed;
-    bottom: 0px;
+p {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 #story-line {
     font-size: 32pt;
     font-family: 'Roboto', sans-serif;
+}
+
+#continue{
+    position: fixed;
+    bottom: 0px;
 }
