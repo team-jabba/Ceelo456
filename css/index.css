@@ -23,13 +23,6 @@ body {
     margin: 0;
 }
 
-div {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    margin:2%;
-}
-
 header {
     display: grid;
     width: 100vw;
@@ -41,18 +34,16 @@ header {
     align-items: center;
 }
 
-main {
-    display: grid;
+#jabbadicewhite {
+    max-width:60%;
+    height: auto;
+}
+
+h1{
+    font-size: 5vh;
+    text-align: center;
     font-family: 'space-age';
-    font-size: 4vh;
-    align-items: center;
-    justify-content: center;
 }
-
-#instructions-button:hover{
-    box-shadow: 0px 0px 20px 10px rgb(0, 255, 0);
-}
-
 
 button {
     border: solid;
@@ -76,15 +67,23 @@ button:hover {
     box-shadow: 0px 0px 20px 10px rgb(255, 0, 0);
 }
 
-#jabbadicewhite {
-    max-width:60%;
-    height: auto;
+#instructions-button:hover{
+    box-shadow: 0px 0px 20px 10px rgb(0, 255, 0);
 }
 
-h1{
-    font-size: 5vh;
-    text-align: center;
+main {
+    display: grid;
     font-family: 'space-age';
+    font-size: 4vh;
+    align-items: center;
+    justify-content: center;
+}
+
+div {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin:2%;
 }
 
 input {
@@ -92,4 +91,3 @@ input {
     font-family: 'space-age';
     font-size: 1.4em;
 }
-
