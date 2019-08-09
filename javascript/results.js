@@ -5,6 +5,9 @@ const storyLine = document.getElementById('story-line');
 const continueButton = document.getElementById('continue');
 const rancor = document.getElementById('rancor');
 const nightClubMusic = document.getElementById('night-club-music');
+const vizziniWins = document.getElementById('vizzini-wins');
+const mrTLoses = document.getElementById('mr-t-loses');
+
 
 const playerMoney = store.get('player-money');
 let level = store.get('level');
@@ -16,6 +19,7 @@ if(level <= 2) {
         if(playerMoney > 0) {
             storyLine.textContent = 'Mr T. might pity the fool but you\'ve proved yourself to be no fool! Now that you have all of Mr T\'s money it\'s time to test your wits because this next boss will challenge your intellect while stealing your money at the same time.';
             continueButton.textContent = 'Continue';
+            mrTLoses.play();
         } else {
             storyLine.textContent = 'I\'ve seen a lot of fools in my day and you might be the biggest fool of them all. I PITY THE FOOL! Go back to school and learn how to not be a fool... ya damn fool.';
             continueButton.textContent = 'Restart';
@@ -29,6 +33,7 @@ if(level <= 2) {
         } else {
             storyLine.textContent = 'The only thing worse than a bad merlot is a moron. And you good sir are among the biggest morons I have ever dueled with! They have these things called books, maybe you go home and ask your mom about them, learn how to read one, then throw yourself out a window, you MORON!' ;
             continueButton.textContent = 'Restart';
+            vizziniWins.play();
             continueButton.setAttribute('onclick', "window.location.href = '../index.html'");
             aboutUsButton.classList.remove('hidden');
         }
