@@ -17,6 +17,7 @@ const winLoss = document.getElementById('win-loss');
 const bossBankMoney = document.getElementById('boss-bank-display');
 const playerBankMoney = document.getElementById('player-bank-display');
 const salaciousLaugh = document.getElementById('salacious-laugh');
+const crumbImg = document.getElementById('crumb');
 const main = document.getElementById('main');
 const opponentNameDisplay = document.getElementById('opponent-name');
 const diceSound1 = document.getElementById('dice-sound-1');
@@ -71,6 +72,12 @@ const opponentBankStart = [
     '3200',
 ];
 
+const playerBankStart = [
+    '1000',
+    '1400',
+    '3000',
+];
+
 const wagerArray = [
     100,
     200,
@@ -78,13 +85,13 @@ const wagerArray = [
 ];
 
 const playerLevel = store.get('level');
-const playerStartMoney = store.get('player-money');
 
 main.style.backgroundImage = backgroundSrcArray[playerLevel];
 opponentNameDisplay.textContent = opponentName[playerLevel];
 bossBankMoney.textContent = opponentBankStart[playerLevel];
-playerBankMoney.textContent = playerStartMoney;
+playerBankMoney.textContent = playerBankStart[playerLevel];
 let wager = wagerArray[playerLevel];
+crumbImg.classList.add('hidden');
 
 const topArray = [
     topFirst,
@@ -112,6 +119,7 @@ allInButton.addEventListener('click', () => {
 });
 
 rollButton.addEventListener('click', () => {
+    crumbImg.classList.add('hidden');
     winLoss.classList.add('hidden');
     for(let i = 0; i < topArray.length; i++) {
         topArray[i].classList.remove('hidden');
@@ -132,16 +140,15 @@ rollButton.addEventListener('click', () => {
         if(checkAutoResult(bankerRoll)) {
             if(checkAutoResult(bankerRoll) === 'win') {
                 showLossMessage();
-                bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
-                playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+                displayMoney(playerBank, bossBank, wager, 'lose');
                 playOpponentLaugh();
                 checkRoundOver();
                 return;
             } else {
                 showWinMessage();
-                bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
-                playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+                displayMoney(playerBank, bossBank, wager, 'win');
                 playOpponentCry();
+                playRandomCoinSound();
                 checkRoundOver();
                 return;
             }
@@ -163,15 +170,13 @@ rollButton.addEventListener('click', () => {
         if(checkAutoResult(nonBankerRoll)) {
             if(checkAutoResult(nonBankerRoll) === 'win') {
                 showWinMessage();
-                playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
-                bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
+                displayMoney(playerBank, bossBank, wager, 'win');
                 playRandomCoinSound();
                 checkRoundOver();
 
             } else {
                 showLossMessage();
-                playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
-                bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
+                displayMoney(playerBank, bossBank, wager, 'lose');
                 checkRoundOver();
             }
         }
@@ -187,18 +192,17 @@ rollButton.addEventListener('click', () => {
     }
     if(getPoints(bankerRoll) > getPoints(nonBankerRoll)) {
         showLossMessage();
-        bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
-        playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+        displayMoney(playerBank, bossBank, wager, 'lose');
         checkRoundOver();
     }
     else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
         showDrawMessage();
+        crumbImg.classList.remove('hidden');
         salaciousLaugh.play();
     }
-    else {
+    else if(getPoints(bankerRoll) < getPoints(nonBankerRoll)) {
         showWinMessage();
-        bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
-        playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+        displayMoney(playerBank, bossBank, wager, 'win');
         checkRoundOver();
     }
 });

@@ -25,7 +25,7 @@ main {
     display: grid;
     grid-template-columns: 25% 16% 16% 16% 25%;
     grid-template-rows: 60% 40%;
-    grid-template-areas: "logo dice6 dice5 dice4 ." ". dice3 dice2 dice1 win-loss";
+    grid-template-areas: "logo dice6 dice5 dice4 crumb" ". dice3 dice2 dice1 win-loss";
     grid-area: coverPhoto;
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,6 +37,22 @@ main {
     max-width: 100%;
     margin-top: -20%;
     max-height: 50%;
+}
+
+#crumb{
+    grid-area: crumb;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: -10%;
+    animation-name: laugh;
+    animation-duration: 200ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes laugh{
+0% {transform: translate(0px);}
+50% {transform: translateY(10px);}
+100% {transform: translateY(0px);}
 }
 
 #top-first {
