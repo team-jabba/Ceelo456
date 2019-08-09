@@ -92,3 +92,7 @@ p {
     font-family: 'Roboto', sans-serif;
     font-size: 3vh;
 }
+
+img {
+    width: 80%;
+}
