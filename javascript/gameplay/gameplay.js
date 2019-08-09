@@ -6,6 +6,7 @@ import store from '../localstorage/store.js';
 
 
 const rollButton = document.getElementById('roll-button');
+const allInButton = document.getElementById('all-in-button');
 const topFirst = document.getElementById('top-first');
 const topSecond = document.getElementById('top-second');
 const topThird = document.getElementById('top-third');
@@ -83,7 +84,7 @@ main.style.backgroundImage = backgroundSrcArray[playerLevel];
 opponentNameDisplay.textContent = opponentName[playerLevel];
 bossBankMoney.textContent = opponentBankStart[playerLevel];
 playerBankMoney.textContent = playerStartMoney;
-const wager = wagerArray[playerLevel];
+let wager = wagerArray[playerLevel];
 
 const topArray = [
     topFirst,
@@ -101,6 +102,14 @@ playerName.textContent = store.get('username');
 
 let bankerRoll = [];
 let nonBankerRoll = [];
+
+allInButton.addEventListener('click', () => {
+    let bossBank = checkBank(bossBankMoney);
+    let playerBank = checkBank(playerBankMoney);
+    if(bossBank <= playerBank) {
+        wager = bossBank;
+    } else { wager = playerBank; }
+});
 
 rollButton.addEventListener('click', () => {
     winLoss.classList.add('hidden');
@@ -201,6 +210,7 @@ function checkRoundOver() {
         store.save('boss-money', checkBank(bossBankMoney));
         store.save('player-money', checkBank(playerBankMoney));
     }
+    resetWager();
 }
 
 function rollDice() {
@@ -220,6 +230,10 @@ function showWinMessage() {
 function showDrawMessage() {
     winLoss.classList.remove('hidden');
     winLoss.src = '../assets/img/draw!.png';
+}
+
+function resetWager() {
+    wager = wagerArray[playerLevel];
 }
 
 function playRandomDiceSound() {
@@ -261,5 +275,15 @@ function playOpponentLaugh() {
 function playOpponentCry() {
     if(opponentName[playerLevel] === 'Vizzini') {
         playRandomInconcievable();
+    }
+}
+
+function displayMoney(playerBank, bossBank, wager, result) {
+    if(result === 'win') {
+        playerBankMoney.textContent = updateMoney(playerBank, wager, 'win');
+        bossBankMoney.textContent = updateMoney(bossBank, wager, 'lose');
+    } else if(result === 'lose') {
+        playerBankMoney.textContent = updateMoney(playerBank, wager, 'lose');
+        bossBankMoney.textContent = updateMoney(bossBank, wager, 'win');
     }
 }
