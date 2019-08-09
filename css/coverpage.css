@@ -1,5 +1,5 @@
 body {
-    background-image: url('../assets/img/Cover-Page.png');
+    background-image: url('../assets/img/cover-page-new.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -7,13 +7,13 @@ body {
 button {
     position: absolute;
     font-size: 50px;
-    margin-left: 100px;
-    margin-top: 100px;
-    width: 550px;
+    margin-left: 50px;
+    margin-top: 10px;
+    width: 600px;
     height: 450px;
     border-color: rgba(0, 0, 0, 0);
     background-color: rgba(255, 255, 255, 0);
-    background-image: url('../assets/img/jabba-glow.png');
+    background-image: url('../assets/img/jabba-glow2.png');
     background-size: cover;
 }
 
@@ -24,5 +24,4 @@ button:focus {
 button:hover {
     transform: translate3d(-1px, -10px, 5px);
     transform: scale(1.3);
-    
 }

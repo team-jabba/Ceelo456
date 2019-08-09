@@ -5,21 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="/css/results.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+            rel="stylesheet">
         <title>Oom-sults Page</title>
     </head>
-    <body id="body"> 
+    <body id="body">
         <header>
             <img src="../assets/img/jabbadicelogowhite.png" id="jabbadicewhite">
             <h1 id="header" class="hidden">Meet Your Fate</h1>
-            <button id="about-us-button" class="hidden" onclick="window.location.href = './about.html';">The Game Designers
+            <button id="about-us-button" class="hidden"
+                onclick="window.location.href= './about.html';">The Game
+                Designers
             </button>
         </header>
         <main>
-            <p id="story-line">
-            </p>
-            <button id="continue" onclick="window.location.href = './gameplay.html'">Continue</button>
+            <p id="story-line"></p>
+            <button id="continue" onclick="window.location.href=
+                './gameplay.html'">Continue</button>
         </main>
+        <audio id="night-club-music" src="../assets/audio/nightclub-music.mp3"></audio>
+        <audio id="rancor" src="../assets/audio/rancor.mp3"></audio>
+        <audio id="mr-t-loses" src="../assets/audio/mrtloses.wav"></audio>
+        <audio id="vizzini-wins" src="../assets/audio/vizziniwins.wav"></audio>
         <script type="module" src="../javascript/results.js"></script>
     </body>
 </html>

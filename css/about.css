@@ -1,50 +1,68 @@
 * {
     box-sizing: border-box;
-}
+ }
 
-@font-face {
+ @font-face {
     font-family: "space-age";
     src:url("../assets/fonts/space-age.ttf")
-}
+ }
 
-html {
+ html {
     overflow: none;
     height: 1000px;
     background-image: url(../assets/img/horsehead-nebula.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: whitesmoke;
-}
+ }
 
-body {
+ body {
     display: grid;
     margin: 0;
-}
+ }
 
-header {
+ header {
     display: grid;
     grid-template-columns: 25% 50% 25%;
     background-color: rgba(0, 0, 0, 0.502);
     height: auto;
     justify-content: center;
     align-items: center;
-}
+ }
 
-.title {
-    color: white;
-}
-
-#jabbadicewhite {
+ #jabbadicewhite {
     max-width: 60%;
     height: auto;
-}
+ }
 
-h1 {
+ h1 {
     font-family: "space-age";
     text-align: center;
-}
+ }
 
-main {
+ button {
+    border: solid;
+    margin: 20px;
+    border-radius: 20px;
+    height: 80px;
+    max-width: 50vw;
+    font-family: 'space-age';
+    font-size: 2vw;
+    box-shadow: 0px 0px 30px 10px lightgray;
+    background-color: black;
+    color: white;
+ }
+
+ button:focus {
+    outline: 0;
+ }
+
+ button:hover {
+    transform: translate3d(-2px, -2px, 10px);
+    box-shadow: 0px 0px 20px 10px rgb(30, 255, 0);
+ }
+
+ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 375px);
@@ -52,11 +70,12 @@ main {
     justify-content: center;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+
     font-size: 26px;
     overflow: hidden;
 }
 
-#dylan img {
+ #dylan img {
     height: 300px;
     margin-left: 130px;
     margin-top: 10px;
@@ -97,28 +116,31 @@ main {
 #kam-img:hover {
     box-shadow: 0px 0px 20px 10px rgb(0, 0, 255);
     transform: scale(1.2);
-}
-#dylan img:hover {
+ }
+
+ #dylan img:hover {
     box-shadow: 0px 0px 20px 10px rgb(255, 3, 255);
     transform: scale(1.1);
 }
 #luke-img:hover {
     box-shadow: 0px 0px 20px 10px rgb(0, 255, 0);
     transform: scale(1.2);
-}
+ }
 
-#dylan-bio {
+ #dylan-bio {
     /* margin-top: 35px; */
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: 'Roboto', sans-serif;
+
     grid-row: 1;
     grid-column: 2;
     overflow: scroll;
 }
 
-#kam-bio {
+
+ #kam-bio {
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
@@ -129,7 +151,8 @@ main {
 
 }
 
-#luke-bio{
+
+ #luke-bio{
     /* margin-top: 35px; */
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
@@ -151,7 +174,8 @@ main {
 
 #pat-name{
     font-family: 'Roboto', sans-serif;
-}
+ }
+
 
 #luke-name{
     color: black;
@@ -160,28 +184,7 @@ main {
 }
 
 #kam-name{
+
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
-}
-
-button {
-    border: solid;
-    margin: 20px;
-    border-radius: 20px;
-    height: 80px;
-    max-width: 50vw;
-    font-family: 'space-age';
-    font-size: 2vw;
-    box-shadow: 0px 0px 30px 10px lightgray;
-    background-color: black;
-    color: white;
-}
-
-button:focus {
-    outline: 0;
-}
-
-button:hover {
-    transform: translate3d(-2px, -2px, 10px);
-    box-shadow: 0px 0px 20px 10px rgb(30, 255, 0);
-}
+ }

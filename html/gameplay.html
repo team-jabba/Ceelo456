@@ -10,18 +10,13 @@
     <body>
         <main id="main">
             <img class="logo" src="../assets/img/jabbDice.png">
-            <img class="dicetop hidden" id="top-first" src="../assets/img/dice6.png"
-                alt="dice6">
-            <img class="dicetop hidden" id="top-second" src="../assets/img/dice5.png"
-                alt="dice5">
-            <img class="dicetop hidden" id="top-third" src="../assets/img/dice4.png"
-                alt="dice4">
-            <img class="dicebottom hidden " id="bottom-first"
-                src="../assets/img/dice3.png" alt="dice3">
-            <img class="dicebottom hidden" id="bottom-second"
-                src="../assets/img/dice2.png" alt="dice2">
-            <img class="dicebottom hidden" id="bottom-third"
-                src="../assets/img/dice1.png" alt="dice1">
+            <img class="dicetop hidden" id="top-first" src="../assets/img/dice6.png"alt="dice6">
+            <img class="dicetop hidden" id="top-second" src="../assets/img/dice5.png"alt="dice5">
+            <img class="dicetop hidden" id="top-third" src="../assets/img/dice4.png"alt="dice4">
+            <img id="crumb" src="../assets/img/crumb-upside-down.png">
+            <img class="dicebottom hidden " id="bottom-first" src="../assets/img/dice3.png" alt="dice3">
+            <img class="dicebottom hidden" id="bottom-second" src="../assets/img/dice2.png" alt="dice2">
+            <img class="dicebottom hidden" id="bottom-third" src="../assets/img/dice1.png" alt="dice1">
             <img id="win-loss" src="" alt="win-loss" class="hidden">
         </main>
         <footer>
@@ -31,11 +26,10 @@
                 <p class="boss-bank">$<span id="boss-bank-display"></span></p>
                 <button id="roll-button" class="roll">Roll Dice</button>
                 <p class="player-bank">$<span id="player-bank-display">1000</span></p>
+                <button id="all-in-button" class="roll">All In!</button>
                 <p class="player"><span id="player-name">Luke</span>'s Bank</p>
             </div>
-
-            <audio id="salacious-laugh"
-            src="../assets/audio/salaciouscrumb.mp3"></audio>
+            <audio id="salacious-laugh" src="../assets/audio/salaciouscrumb.mp3"></audio>
             <audio id="dice-sound-1" src="../assets/audio/dicesound1.mp3"></audio>
             <audio id="dice-sound-2" src="../assets/audio/dicesound2.mp3"></audio>
             <audio id="dice-sound-3" src="../assets/audio/dicesound3.mp3"></audio>
@@ -49,7 +43,6 @@
             <audio id="coin-sound-2" src="../assets/audio/coins2.mp3"></audio>
             <audio id="coin-sound-3" src="../assets/audio/coins3.mp3"></audio>
             <audio id="mr-t-pity" src="../assets/audio/pityfool.mp3"></audio>
-
         </footer>
         <script type="module" src="../javascript/gameplay/gameplay.js"></script>
         <script type="module" src="../javascript/results.js"></script>

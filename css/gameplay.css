@@ -9,11 +9,6 @@ html {
 }
 
 @font-face {
-    font-family: "aurebesh";
-    src: url("../assets/fonts/aurebesh.ttf");
-}
-
-@font-face {
     font-family: "space-age";
     src: url("../assets/fonts/space-age.ttf");
 }
@@ -30,13 +25,80 @@ main {
     display: grid;
     grid-template-columns: 25% 16% 16% 16% 25%;
     grid-template-rows: 60% 40%;
-    grid-template-areas: "logo dice6 dice5 dice4 ." ". dice3 dice2 dice1 win-loss";
+    grid-template-areas: "logo dice6 dice5 dice4 crumb" ". dice3 dice2 dice1 win-loss";
     grid-area: coverPhoto;
-    /* background-image: url(../assets/img/jabba.jpeg); */
-    /* background-image: url(../assets/img/vizzini.png); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 30%;
+}
+
+.logo {
+    grid-area: logo;
+    max-width: 100%;
+    margin-top: -20%;
+    max-height: 50%;
+}
+
+#crumb{
+    grid-area: crumb;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: -10%;
+    animation-name: laugh;
+    animation-duration: 200ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes laugh{
+0% {transform: translate(0px);}
+50% {transform: translateY(10px);}
+100% {transform: translateY(0px);}
+}
+
+#top-first {
+    grid-area: dice6;
+}
+
+#top-second {
+    grid-area: dice5
+}
+
+#top-third {
+    grid-area: dice4
+}
+
+#bottom-first {
+    grid-area: dice3
+}
+
+#bottom-second {
+    grid-area: dice2
+}
+
+#bottom-third {
+    grid-area: dice1
+}
+
+[class^="dice"] {
+    width: 80%;
+}
+
+[class$=top] {
+    margin-top: auto;
+}
+
+[class$=bottom] {
+    margin-bottom: auto;
+}
+
+#win-loss {
+    grid-area: win-loss;
+    width: 100%;
+    margin-top: -50%;
+}
+
+.hidden {
+    display: none;
 }
 
 footer {
@@ -121,58 +183,5 @@ button:hover {
 .player {
     font-size: 3vw;
     text-shadow: 10px 10px 6px black;
-}
-
-#top-first {
-    grid-area: dice6;
-}
-
-#top-second {
-    grid-area: dice5
-}
-
-#top-third {
-    grid-area: dice4
-}
-
-#bottom-first {
-    grid-area: dice3
-}
-
-#bottom-second {
-    grid-area: dice2
-}
-
-#bottom-third {
-    grid-area: dice1
-}
-
-[class^="dice"] {
-    width: 80%;
-}
-
-[class$=top] {
-    margin-top: auto;
-}
-
-[class$=bottom] {
-    margin-bottom: auto;
-}
-
-.logo {
-    grid-area: logo;
-    max-width: 100%;
-    margin-top: -20%;
-    max-height: 50%;
-}
-
-#win-loss {
-    grid-area: win-loss;
-    width: 100%;
-    margin-top: -50%;
-}
-
-.hidden {
-    display: none;
 }
 
