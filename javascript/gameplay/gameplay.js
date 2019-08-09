@@ -121,11 +121,17 @@ let bankerRoll = [];
 let nonBankerRoll = [];
 
 allInButton.addEventListener('click', () => {
-    let bossBank = checkBank(bossBankMoney);
-    let playerBank = checkBank(playerBankMoney);
+    let bossBank = parseInt(bossBankMoney.textContent);
+    let playerBank = parseInt(playerBankMoney.textContent);
+    console.log(bossBank);
+    console.log(playerBank);
     if(bossBank <= playerBank) {
         wager = bossBank;
-    } else { wager = playerBank; }
+        console.log('wager: ', wager);
+    } else {
+        wager = playerBank;
+        console.log('wager: ', wager);
+    }
 });
 
 rollButton.addEventListener('click', () => {
@@ -177,17 +183,18 @@ rollButton.addEventListener('click', () => {
         }
 
 
-        if(checkAutoResult(nonBankerRoll)) {
+        if(checkAutoResult(nonBankerRoll) !== false) {
             if(checkAutoResult(nonBankerRoll) === 'win') {
                 showWinMessage();
                 displayMoney(playerBank, bossBank, wager, 'win');
                 playRandomCoinSound();
                 checkRoundOver();
-
-            } else {
+                return;
+            } else if(checkAutoResult(nonBankerRoll) === 'lose') {
                 showLossMessage();
                 displayMoney(playerBank, bossBank, wager, 'lose');
                 checkRoundOver();
+                return;
             }
         }
 

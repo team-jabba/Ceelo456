@@ -39,6 +39,7 @@ if(level <= 2) {
         if(playerMoney > 0) {
             storyLine.textContent = 'Congrats! You have taken all of Jabba\'s money, I hope you can run fast because he is pissed! Luckily he can\'t run at all. Now that you are rich and have avoided certain death, maybe you should buy your cohort some pizza... nah, let\'s go blow all the money on another game dice!';
             continueButton.textContent = 'Restart';
+            continueButton.setAttribute('onclick', "window.location.href = '../index.html'");
             nightClubMusic.play();
             document.body.style.backgroundImage = 'url(../assets/img/coruscant-nightlife.jpg)';
             aboutUsButton.classList.remove('hidden');
