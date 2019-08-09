@@ -24,5 +24,4 @@ button:focus {
 button:hover {
     transform: translate3d(-1px, -10px, 5px);
     transform: scale(1.3);
-    
 }
