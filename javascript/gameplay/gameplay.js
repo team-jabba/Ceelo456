@@ -243,7 +243,7 @@ function showWinMessage() {
 
 function showDrawMessage() {
     winLoss.classList.remove('hidden');
-    winLoss.src = '../assets/img/draw!.png';
+    winLoss.src = '../assets/img/draw.png';
 }
 
 function resetWager() {
