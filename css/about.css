@@ -98,7 +98,7 @@ main {
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: 'Roboto', sans-serif;
-    transform: translate(-150px, 0px);
+    transform: translate(-60px, 0px);
 }
 
 #kam-bio {
@@ -106,7 +106,7 @@ main {
     grid-template-columns: 25% 50% 25%;
     height: auto;
     font-family: 'Roboto', sans-serif;
-    transform: translate(-130px, 0px)
+    transform: translate(-35px, 0px)
 }
 
 #luke-bio{
@@ -114,14 +114,14 @@ main {
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
-    transform: translate(-125px, 330px);
+    transform: translate(-55px, 330px);
     font-family: 'Roboto', sans-serif;
 }
 #pat-bio{
     background-color: rgba(0, 0, 0, 0.502);
     grid-template-columns: 25% 50% 25%;
     height: auto;
-    transform: translate(-170px, 250px);
+    transform: translate(-80px, 250px);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -131,13 +131,13 @@ main {
 }
 
 #luke-name{
-    transform: translate(0px, 330px);
+    transform: translate(-50px, 330px);
     color: black;
 }
 
 #kam-name, #dylan-name{
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 button {
