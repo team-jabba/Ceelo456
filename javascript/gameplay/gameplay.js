@@ -20,6 +20,7 @@ const salaciousLaugh = document.getElementById('salacious-laugh');
 const crumbImg = document.getElementById('crumb');
 const main = document.getElementById('main');
 const opponentNameDisplay = document.getElementById('opponent-name');
+
 const diceSound1 = document.getElementById('dice-sound-1');
 const diceSound2 = document.getElementById('dice-sound-2');
 const diceSound3 = document.getElementById('dice-sound-3');
@@ -33,9 +34,8 @@ const coinSound1 = document.getElementById('coin-sound-1');
 const coinSound2 = document.getElementById('coin-sound-2');
 const coinSound3 = document.getElementById('coin-sound-3');
 const pityTheFool = document.getElementById('mr-t-pity');
-const vizziniIntro = document.getElementById('vizzini-intro');
-const mrTIntro = document.getElementById('mr-t-intro');
-const jabbaIntro = document.getElementById('jabba-intro');
+
+const intro = document.getElementById('intro');
 
 const playerName = document.getElementById('player-name');
 
@@ -57,51 +57,35 @@ const srcArrayRed = [
     '../assets/img/red-six.png',
 ];
 
-const backgroundSrcArray = [
-    'url(../assets/img/mr-t.png)',
-    'url(../assets/img/vizzini.png)',
-    'url(../assets/img/jabba.jpeg)',
-];
-
-const opponentName = [
-    'Mr. T',
-    'Vizzini',
-    'Jabba',
-];
-
-const opponentBankStart = [
-    '400',
-    '1400',
-    '3200',
-];
-
-const playerBankStart = [
-    '1000',
-    '1400',
-    '3000',
-];
-
-const wagerArray = [
-    100,
-    200,
-    400,
-];
-
-const opponentIntro = [
-    mrTIntro,
-    vizziniIntro,
-    jabbaIntro
+// this should be in different file, and you load based on level
+const bosses = [{
+    name: 'Mr. T',
+    url: 'url(../assets/img/mr-t.png)',
+    bank: 400, // number, not string!
+    playerBank: 400,
+    wager: 100,
+    intro: '../assets/audio/mrtintro.mp3',
+    sounds: [
+        '../assets/audio/pityfool.mp3'
+    ]
+},
+{ /* vizzini */ },
+{ /* jabba */}
 ];
 
 const playerLevel = store.get('level');
 
-main.style.backgroundImage = backgroundSrcArray[playerLevel];
-opponentNameDisplay.textContent = opponentName[playerLevel];
-bossBankMoney.textContent = opponentBankStart[playerLevel];
-playerBankMoney.textContent = playerBankStart[playerLevel];
-let wager = wagerArray[playerLevel];
+const boss = findBoss(bosses, playerLevel); // or however you lookup level;
+
+intro.src = boss.intro;
+main.style.backgroundImage = boss.url;
+opponentNameDisplay.textContent = boss.name;
+bossBankMoney.textContent = boss.bankStart;
+playerBankMoney.textContent = boss.playerBank
+let wager = boss.wager;
 crumbImg.classList.add('hidden');
-opponentIntro[playerLevel].play();
+
+boss.intro.play();
 
 const topArray = [
     topFirst,
@@ -249,7 +233,7 @@ function showDrawMessage() {
 }
 
 function resetWager() {
-    wager = wagerArray[playerLevel];
+    wager = boss.wager;
 }
 
 function playRandomDiceSound() {
@@ -265,6 +249,8 @@ function playRandomCoinSound() {
     else if(number === 2) { coinSound2.play(); }
     else { coinSound3.play(); }
 }
+
+// these should be based on "boss" object
 
 function playRandomJabbaLaugh() {
     let number = rollDice()[0] / 2;
