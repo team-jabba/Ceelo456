@@ -102,7 +102,9 @@ const bottomArray = [
 playerName.textContent = store.get('username');
 
 let bankerRoll = [];
+let bankerPoints = 0;
 let nonBankerRoll = [];
+let nonBankerPoints = 0;
 
 allInButton.addEventListener('click', () => {
     let bossBank = parseInt(bossBankMoney.textContent);
@@ -117,39 +119,56 @@ allInButton.addEventListener('click', () => {
 rollButton.addEventListener('click', () => {
     crumbImg.classList.add('hidden');
     winLoss.classList.add('hidden');
+
     for(let i = 0; i < topArray.length; i++) {
         topArray[i].classList.remove('hidden');
     }
+
     for(let i = 0; i < bottomArray.length; i++) {
         bottomArray[i].classList.add('hidden');
     }
+
     let bossBank = checkBank(bossBankMoney);
     let playerBank = checkBank(playerBankMoney);
+
+    function showWin() {
+        showWinMessage();
+        displayMoney(playerBank, bossBank, wager, 'win');
+        playOpponentCry();
+        playRandomCoinSound();
+        checkRoundOver();
+
+    }
+
+    function showLoss() {
+        showLossMessage();
+        displayMoney(playerBank, bossBank, wager, 'lose');
+        playOpponentLaugh();
+        checkRoundOver();
+    }
+
     let flag = 0;
     while(flag === 0) {
         bankerRoll = rollDice();
+        bankerPoints = getPoints(bankerRoll);
+
         for(let i = 0; i < bankerRoll.length; i++) {
             const number = bankerRoll[i];
             topArray[i].src = srcArrayRed[number - 1];
         }
-
-        if(checkAutoResult(bankerRoll)) {
-            if(checkAutoResult(bankerRoll) === 'win') {
-                showLossMessage();
-                displayMoney(playerBank, bossBank, wager, 'lose');
-                playOpponentLaugh();
-                checkRoundOver();
+        
+        const autoResult = checkAutoResult(bankerRoll);
+        if(autoResult) {
+            if(autoResult === 'win') {
+                showLoss();
                 return;
             } else {
-                showWinMessage();
-                displayMoney(playerBank, bossBank, wager, 'win');
-                playOpponentCry();
-                playRandomCoinSound();
-                checkRoundOver();
+                showWin();
                 return;
             }
         }
-        if(getPoints(bankerRoll)) {
+
+        if(bankerPoints) {
             flag = 1;
         }
     }
@@ -157,22 +176,21 @@ rollButton.addEventListener('click', () => {
     flag = 0;
     while(flag === 0) {
         nonBankerRoll = rollDice();
+        nonBankerPoints = getPoints(nonBankerRoll);
+
         playRandomDiceSound();
         for(let i = 0; i < bottomArray.length; i++) {
             bottomArray[i].classList.remove('hidden');
         }
 
-        if(checkAutoResult(nonBankerRoll) !== false) {
-            if(checkAutoResult(nonBankerRoll) === 'win') {
-                showWinMessage();
-                displayMoney(playerBank, bossBank, wager, 'win');
-                playRandomCoinSound();
-                checkRoundOver();
+        const autoResult = checkAutoResult(bankerRoll);
+
+        if(autoResult !== false) {
+            if(autoResult === 'win') {
+                showWin();
                 return;
             } else if(checkAutoResult(nonBankerRoll) === 'lose') {
-                showLossMessage();
-                displayMoney(playerBank, bossBank, wager, 'lose');
-                checkRoundOver();
+                showLoss();
                 return;
             }
         }
@@ -182,21 +200,22 @@ rollButton.addEventListener('click', () => {
             bottomArray[i].src = srcArrayGreen[number - 1];
         }
 
-        if(getPoints(nonBankerRoll)) {
+        if(nonBankerPoints) {
             flag = 1;
         }
     }
-    if(getPoints(bankerRoll) > getPoints(nonBankerRoll)) {
+
+    if(bankerPoints > nonBankerPoints) {
         showLossMessage();
         displayMoney(playerBank, bossBank, wager, 'lose');
         checkRoundOver();
     }
-    else if(getPoints(bankerRoll) === getPoints(nonBankerRoll)) {
+    else if(bankerPoints === nonBankerPoints) {
         showDrawMessage();
         crumbImg.classList.remove('hidden');
         salaciousLaugh.play();
     }
-    else if(getPoints(bankerRoll) < getPoints(nonBankerRoll)) {
+    else if(bankerPoints < nonBankerPoints) {
         showWinMessage();
         displayMoney(playerBank, bossBank, wager, 'win');
         checkRoundOver();
@@ -250,7 +269,7 @@ function playRandomCoinSound() {
     else { coinSound3.play(); }
 }
 
-// these should be based on "boss" object
+// these should be based on "boss" object, not hard coded!
 
 function playRandomJabbaLaugh() {
     let number = rollDice()[0] / 2;
